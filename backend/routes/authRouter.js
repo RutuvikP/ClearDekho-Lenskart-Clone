@@ -1,8 +1,10 @@
-import express from "express";
-import { forgotPasswordController, loginController, registerController, testController } from "../controllers/authController.js";
-import { MustBeSigned, isAdmin } from "../middlewares/authMiddlewares.js";
-
+const express = require('express');
+// const { forgotPasswordController, loginController, registerController, testController } = require('../controllers/authController')
+const { MustBeSigned, isAdmin } = require('../middleware/authenticate');
+const { forgotPasswordController ,loginController,registerController,testController} = require('../controllers/authcontroller');
+// forgotPasswordController
 const authrouter = express.Router()
+// forgotPasswordController
 
 authrouter.post("/register", registerController)
 
@@ -29,4 +31,7 @@ authrouter.get("/admin-auth", MustBeSigned, isAdmin, (req, res) => {
     res.status(200).send({ ok: true });
 });
 
-export default authrouter
+// export default authrouter
+module.exports = {
+    authrouter
+}

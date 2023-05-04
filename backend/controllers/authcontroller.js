@@ -1,12 +1,9 @@
+const JWT = require("jsonwebtoken")
+const { UserModel } = require("../model/User.model");
 
-import JWT from "jsonwebtoken";
-import { hashPassword, comparePassword } from './../helper/authHelper.js';
-import userModel from "../models/userModel.js";
-// userModel
-
-export const registerController = async (req, res) => {
+const registerController = async (req, res) => {
     try {
-        const { name, email, password, phone, answer, address } = req.body;
+        const { name, email, password, phone, address } = req.body;
         //validations
         if (!name) {
             return res.send({ error: "Name is Required" });
@@ -23,11 +20,9 @@ export const registerController = async (req, res) => {
         if (!address) {
             return res.send({ error: "Address is Required" });
         }
-        if (!answer) {
-            return res.send({ error: "answer is Required" });
-        }
+
         //check user
-        const exisitingUser = await userModel.findOne({ email });
+        const exisitingUser = await UserModel.findOne({ email });
         //exisiting user
         if (exisitingUser) {
             return res.status(200).send({
@@ -38,13 +33,13 @@ export const registerController = async (req, res) => {
         //register user
         const hashedPassword = await hashPassword(password);
         //save
-        const user = await new userModel({
+        const user = await new UserModel({
             name,
             email,
             phone,
             address,
             password: hashedPassword,
-            answer
+
         }).save();
 
         res.status(201).send({
@@ -63,7 +58,7 @@ export const registerController = async (req, res) => {
 };
 
 //POST LOGIN
-export const loginController = async (req, res) => {
+const loginController = async (req, res) => {
     try {
         const { email, password } = req.body;
         //validation
@@ -74,7 +69,7 @@ export const loginController = async (req, res) => {
             });
         }
         //check user
-        const user = await userModel.findOne({ email });
+        const user = await UserModel.findOne({ email });
         if (!user) {
             return res.status(404).send({
                 success: false,
@@ -101,7 +96,7 @@ export const loginController = async (req, res) => {
                 email: user.email,
                 phone: user.phone,
                 adddress: user.address,
-                role: user.role
+                
             },
             token,
         });
@@ -116,7 +111,7 @@ export const loginController = async (req, res) => {
 };
 
 
-export const testController = (req, res) => {
+const testController = (req, res) => {
     try {
         res.send("Protected Routes");
     } catch (error) {
@@ -125,7 +120,7 @@ export const testController = (req, res) => {
     }
 };
 
-export const forgotPasswordController = async (req, res) => {
+const forgotPasswordController = async (req, res) => {
     try {
         const { email, answer, newPassword } = req.body;
         if (!email) {
@@ -138,7 +133,7 @@ export const forgotPasswordController = async (req, res) => {
             res.status(400).send({ message: "New Password is required" });
         }
         //check
-        const user = await userModel.findOne({ email, answer });
+        const user = await UserModel.findOne({ email, answer });
         //validation
         if (!user) {
             return res.status(404).send({
@@ -161,3 +156,30 @@ export const forgotPasswordController = async (req, res) => {
         });
     }
 };
+
+
+
+const bcrypt = require("bcrypt")
+
+const hashPassword = async (password) => {
+    try {
+        const hashedPassword = await bcrypt.hash(password, 10)
+
+        return hashedPassword
+    } catch (error) {
+        console.log("Error hashing password")
+    }
+}
+
+
+const comparePassword = async (password, hashedPassword) => {
+
+
+    return bcrypt.compare(password, hashedPassword)
+
+}
+
+
+module.exports = {
+    registerController, loginController, testController, forgotPasswordController
+}
