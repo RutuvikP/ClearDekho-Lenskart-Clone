@@ -1,9 +1,10 @@
 import './App.css';
+import { Product } from './Pages/Product';
 
 function App() {
   return (
     <div className="App">
-      <h1>ClearDekho App</h1>
+      <Product />
     </div>
   );
 }
