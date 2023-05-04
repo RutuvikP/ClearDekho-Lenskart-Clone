@@ -1,9 +1,13 @@
 import './App.css';
+import SinglePage from './Pages/SinglePage';
+
+
+import AllRoutes from './Routes/AllRoutes';
 
 function App() {
   return (
     <div className="App">
-      <h1>ClearDekho App</h1>
+      <AllRoutes/>
     </div>
   );
 }
