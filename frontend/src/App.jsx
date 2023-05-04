@@ -1,10 +1,14 @@
-import './App.css';
-import { Product } from './Pages/Product';
+
+import "./App.css";
+import Navbar from "./Components/Navbar";
+import Home from "./Pages/Homepage/Home";
+
 
 function App() {
   return (
     <div className="App">
-      <Product />
+      {/* <h1>ClearDekho App</h1> */}
+      <Home />
     </div>
   );
 }
