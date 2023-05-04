@@ -1,10 +1,15 @@
+
 const express = require('express');
+const cors=require('cors');
 const { userRouter } = require('./routes/User.routes');
+const eyeglassRoutes  = require('./routes/Eyeglasses.routes');
+const cartRouter = require('./routes/Cart.routes');
 const { connection } = require('./configs/db');
 const app = express();
+app.use(cors())
+app.use(express.json());
 var colors = require('colors');
 const morgan = require("morgan")
-const cors = require("cors");
 const { authrouter } = require('./routes/authRouter');
 colors.setTheme({
     silly: 'rainbow',
@@ -20,13 +25,13 @@ colors.setTheme({
 });
 
 
-app.use('user', userRouter);
-
-app.use(express.json())
+app.use('/user',userRouter);
+app.use('/eyeglasses',eyeglassRoutes);
 app.use(morgan("dev"))
-app.use(cors())
 app.use("/api/v1/auth", authrouter)
 
+//authentication middleware will come here
+app.use('/cart',cartRouter);
 
 app.get("/", (req, res) => {
     res.send("<h1>Hello How Are You Man</h1>")
