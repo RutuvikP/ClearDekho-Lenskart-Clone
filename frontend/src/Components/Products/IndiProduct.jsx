@@ -16,24 +16,26 @@ import { useState } from 'react';
 import { AiFillStar,AiOutlineHeart } from "react-icons/ai";
 
 import { BsHeartFill,BsHeart } from "react-icons/bs"
+import { NavLink } from 'react-router-dom';
 function ProductCard({ _id, title, size, rating, price, color, image }) {
     const [liked,setLiked] = useState(false)
     console.log(liked)
     return (
-        <Flex gap={10} w="full" alignItems="center" justifyContent="center">
+        <Flex cursor={"pointer"} gap={10} w="full" alignItems="center" justifyContent="center">
+           
             <Box
                 bg={useColorModeValue('white', 'gray.800')}
                 maxW="sm"
                 borderWidth="1px"
                 rounded="lg"
                 position="relative">
-
+             <NavLink to={`/eyeglasses/${_id}`} >
                 <Image
                     src={image}
                     alt={`Picture of ${title}`}
                     roundedTop="lg"
                 />
-
+            </NavLink>
                 <Box p="6">
                     <Box pos={"relative"} right={"8vw"} >
                         <Badge p={"6px"} textAlign={"center"} rounded="full" px="2" h={"4vh"} w={"5vw"}  fontSize="12px" fontWeight={"700"} bgColor={"#eeeef5"}>
@@ -76,6 +78,12 @@ function ProductCard({ _id, title, size, rating, price, color, image }) {
                             </Box>
                             {size}
                         </Box>
+                        <Box fontSize="sm" color={useColorModeValue('gray.800', 'white')}>
+                            <Box as="span" color={'gray.600'} fontSize="sm">
+                               Color:
+                            </Box>
+                            {color}
+                        </Box>
                         <Box fontSize="md" fontWeight={"semibold"} color={useColorModeValue('gray.800', 'white')}>
                             <Box as="span" fontWeight={"semibold"} color={'gray.600'} fontSize="md">
                                 ₹
@@ -91,6 +99,7 @@ function ProductCard({ _id, title, size, rating, price, color, image }) {
                     </Flex>
                 </Box>
             </Box>
+            
         </Flex>
     );
 }
