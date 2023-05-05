@@ -9,7 +9,6 @@ import { HompePageitem2} from"./HompepageItems"
 const Home = () => {
   return (
     <Box>
-      <Navbar />
       <HomepageContent1 data={HompePageitem}/>
       <HomepageContent2 data={HompePageitem2}/>
     </Box>
