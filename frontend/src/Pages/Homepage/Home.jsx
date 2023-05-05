@@ -13,7 +13,6 @@ import HomepageContent4 from "./HomepageContent4";
 const Home = () => {
   return (
     <Box>
-      <Navbar />
       <HomepageContent1 data={HompePageitem}/>
       <HomepageContent2 data={HompePageitem2}/>
       

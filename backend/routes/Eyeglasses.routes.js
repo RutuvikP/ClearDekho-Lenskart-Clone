@@ -8,16 +8,16 @@ eyeglassRoutes.get('/',async (req,res)=>{
     const {brand,size,shape,color,orderBy}=req.query;
     const query={};
     if(brand){
-        query.title={$regex:brand,$options:'i'};
+        query.title={$in:brand};
     }
     if(size){
-        query.size={$regex:size,$options:'i'}
+        query.size={$in:size}
     }
     if(shape){
-        query.shape={$regex:shape,$options:'i'}
+        query.shape={$in:shape}
     }
     if(color){
-        query.color={$regex:color,$options:'i'}
+        query.color={$in:color}
     }
     let sortObj={};
     if(orderBy=="asc"){
@@ -32,6 +32,17 @@ eyeglassRoutes.get('/',async (req,res)=>{
         res.send({"msg":error.message});
     }
 });
+
+// for getting single product
+eyeglassRoutes.get('/:id',async(req,res)=>{
+    const {id}=req.params;
+    try {
+        const product=await EyeglassesModel.find({_id:id});
+        res.send(product);
+    } catch (error) {
+        res.send({"msg":error.message});
+    }
+})
 
 // adding products for admin only
 eyeglassRoutes.post('/add',async(req,res)=>{
