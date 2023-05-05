@@ -11,6 +11,7 @@ app.use(express.json());
 var colors = require('colors');
 const morgan = require("morgan")
 const { authrouter } = require('./routes/authRouter');
+const { MustBeSigned } = require('./middleware/authenticate');
 colors.setTheme({
     silly: 'rainbow',
     input: 'grey',
@@ -31,8 +32,7 @@ app.use(morgan("dev"))
 app.use("/api/v1/auth", authrouter)
 
 //authentication middleware will come here
-app.use('/cart',cartRouter);
-
+app.use('/cart',MustBeSigned,cartRouter);
 app.get("/", (req, res) => {
     res.send("<h1>Hello How Are You Man</h1>")
 })
