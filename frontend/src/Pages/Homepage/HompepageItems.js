@@ -90,3 +90,66 @@ export const HompePageitem = [
       caption: "Slide 2"
     }
   ];
+
+  export const HompePageitem3 = [
+    {
+      name: "Blend Edit",
+      img: "https://static1.lenskart.com/media/desktop/img/Sep21/blend.jpg",
+      caption: "Slide 1"
+    },
+    {
+      name: "Air Clip On",
+      img: "https://static1.lenskart.com/media/desktop/img/Sep21/clipon.jpg",
+      caption: "Slide 2"
+    },
+    {
+      name: "Air Flex",
+      img: "https://static1.lenskart.com/media/desktop/img/Sep21/airflex.jpg",
+      caption: "Slide 3"
+    },
+    {
+      name: "Retro Aviator",
+      img: "https://static1.lenskart.com/media/desktop/img/Sep21/aviator.jpg",
+      caption: "Slide 4"
+    },
+    {
+      name: "Round",
+      img: "https://static1.lenskart.com/media/desktop/img/Sep21/image179.png",
+      caption: "Slide 1"
+    },
+    {
+      name: "Cat-Eye",
+      img: "https://static1.lenskart.com/media/desktop/img/Sep21/cateeye.jpg",
+      caption: "Slide 1"
+    },
+    {
+      name: "Clubmaster",
+      img: "https://static1.lenskart.com/media/desktop/img/Sep21/clubmaster.jpg",
+      caption: "Slide 1"
+    },
+    {
+      name: "Transparent",
+      img: "https://static1.lenskart.com/media/desktop/img/Sep21/trans.jpg",
+      caption: "Slide 1"
+    },
+    {
+      name: "Blend Edit",
+      img: "https://static1.lenskart.com/media/desktop/img/Sep21/blend.jpg",
+      caption: "Slide 1"
+    },
+    {
+      name: "Air Clip On",
+      img: "https://static1.lenskart.com/media/desktop/img/Sep21/clipon.jpg",
+      caption: "Slide 1"
+    },
+    {
+      name: "Air Flex",
+      img: "https://static1.lenskart.com/media/desktop/img/Sep21/airflex.jpg",
+      caption: "Slide 1"
+    },
+    {
+      name: "Retro Aviator",
+      img: "https://static1.lenskart.com/media/desktop/img/Sep21/aviator.jpg",
+      caption: "Slide 1"
+    }
+  ];

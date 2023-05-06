@@ -13,6 +13,7 @@ const morgan = require("morgan")
 const { authrouter } = require('./routes/authRouter');
 const { AdminModel } = require('./model/Admin.model');
 const { Adminouter } = require('./routes/AdminRouter');
+const { MustBeSigned } = require('./middleware/authenticate');
 colors.setTheme({
     silly: 'rainbow',
     input: 'grey',
@@ -33,7 +34,8 @@ app.use(morgan("dev"))
 app.use("/api/v1/auth", authrouter)
 app.use("/admin",Adminouter)
 
-app.use('/cart',cartRouter);
+//authentication middleware will come here
+app.use('/cart',MustBeSigned,cartRouter);
 
 app.get("/", (req, res) => {
     res.send("<h1>Hello How Are You Man</h1>")

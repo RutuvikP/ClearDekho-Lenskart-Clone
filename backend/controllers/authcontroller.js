@@ -39,7 +39,7 @@ const registerController = async (req, res) => {
             phone,
             address,
             password: hashedPassword,
-
+            role:"user"
         }).save();
 
         res.status(201).send({
@@ -84,7 +84,7 @@ const loginController = async (req, res) => {
             });
         }
         //token
-        const token = await JWT.sign({ _id: user._id }, process.env._PRIVATE_KEY, {
+        const token = await JWT.sign({ userID: user._id, userName:user.name }, process.env._PRIVATE_KEY, {
             expiresIn: "7d",
         });
         res.status(200).send({
