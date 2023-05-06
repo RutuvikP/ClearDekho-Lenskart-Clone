@@ -10,7 +10,7 @@ const AllRoutes=()=>{
     return(
         <Routes>
             <Route path='/' element={<Home/>}/>
-            <Route path='/admindashboard' element={<AdminDashboard/>}/>
+            {/* <Route path='/admindashboard' element={<AdminDashboard/>}/> */}
             <Route path="/eyeglasses/:id" element={<SinglePage />} />
             <Route path='/eyeglasses' element={<Product />} />
         </Routes>
