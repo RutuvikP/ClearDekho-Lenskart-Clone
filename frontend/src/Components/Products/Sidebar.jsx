@@ -188,7 +188,7 @@ export const Sidebar = () => {
                 </VStack>
 
                 <VStack align={"start"} >
-                    <Accordion width={"18vw"} defaultIndex={[0]} allowMultiple>
+                    <Accordion width={["100%","100%","100%","18vw","18vw"]} defaultIndex={[0]} allowMultiple>
 
                         {/* First */}
                         <AccordionItem >

@@ -35,8 +35,10 @@ import { FaInstagram, FaTwitter, FaYoutube } from 'react-icons/fa';
 import { MdLocalShipping } from 'react-icons/md';
 import { useSelector } from 'react-redux';
 import { useParams } from 'react-router-dom';
-
+import { useToast } from '@chakra-ui/react'
+import axios from 'axios';
 const SinglePage = () => {
+  const toast = useToast()
   const { id } = useParams()
   console.log(id)
   const [data, setData] = useState({})
@@ -45,15 +47,43 @@ const SinglePage = () => {
       products: state.productReducer.products
     }
   })
-  // const capitalizeFirstLowercaseRest = (str) => {
-  //   return (
-  //     str.charAt(0).toUpperCase() + str.slice(1).toLowerCase()
-  //   );
-  // };
   useEffect(() => {
     const data = products.find((el) => el._id === id)
     setData(data)
   }, [])
+  const handleClick=()=>{
+    const obj={
+      image:data.image,
+      title:data.title,
+      price:data.price,
+      rating:data.rating,
+      shape:data.shape,
+      size:data.size,
+      color:data.color
+    }
+
+    axios.post("http://localhost:8080/cart/addtocart",obj).then((res)=>{
+      console.log(res)
+      toast({
+        title: 'Added to cart successfully!',
+        description: "The product is added to your cart",
+        status: 'success',
+        duration: 1000,
+        isClosable: true,
+      })
+    }).catch(()=>{
+      toast({
+        title: 'Login First!',
+        description: "Please do login to your account or signup to start a new journey with us!",
+        status: 'error',
+        duration: 1000,
+        isClosable: true,
+      })
+    })
+    
+    console.log(obj,"objClick")
+  }
+
   console.log(data)
 
   return (
@@ -61,9 +91,9 @@ const SinglePage = () => {
       <Flex
         margin={"auto"}
         width={"96%"}
-        direction={"row"}
+        direction={["column","column","column","row","row"]}
         py={{ base: 18, md: 24 }}>
-        <Flex position={"relative"} bottom={"8vh"} width={"80vw"}>
+        <Flex position={"relative"} bottom={["1vh","1vh","1vh","8vh","8vh"]} width={["100%","100%","100%","80vw","80vw"]}>
           <Image
             border={"0.5px solid lightgrey"}
             rounded={'md'}
@@ -74,14 +104,14 @@ const SinglePage = () => {
             fit={"contain"}
             align={'center'}
             w={'100%'}
-            h={{ base: '100%', sm: '400px', lg: '100vh' }}
+            h={{ base: '80vh', sm: '80vh', lg: '100vh' }}
           />
         </Flex>
         <Spacer />
-        <Stack align={"start"} width={"38vw"} ml={"10vw"} position={"relative"} bottom={"8vh"} right={"7vw"} spacing={{ base: 6, md: 10 }}>
+        <Stack align={["center","center","center","start","start"]} width={["100%","100%","100%","38vw","38vw"]} ml={["0vw","0vw","0vw","10vw","10vw"]} position={"relative"} top={["8vh","8vh","8vh","0vh","0vh"]} bottom={["0vh","0vh","0vh","8vh","8vh"]} right={["0vh","0vh","0vh","7vh","7vw"]} spacing={{ base: 6, md: 10 }}>
           <Box as={'header'}>
             <Text
-              align={"start"}
+              align={["center","center","center","start","start"]}
               color={"#999"}
 
               fontWeight={"semibold"}
@@ -161,6 +191,7 @@ const SinglePage = () => {
             color={'gray.900'}
             textTransform={'uppercase'}
             border={"1px solid black"}
+            onClick={handleClick}
             _hover={{
               transform: 'translateY(2px)',
               boxShadow: 'lg',
@@ -172,7 +203,7 @@ const SinglePage = () => {
 
 
 
-          <Accordion width={"28vw"} defaultIndex={[0]} allowMultiple>
+          <Accordion width={["100%","100%","100%","28vw","28vw"]} defaultIndex={[0]} allowMultiple>
             <AccordionItem>
               <h2>
                 <AccordionButton>
