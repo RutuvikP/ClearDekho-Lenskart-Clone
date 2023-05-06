@@ -11,6 +11,8 @@ app.use(express.json());
 var colors = require('colors');
 const morgan = require("morgan")
 const { authrouter } = require('./routes/authRouter');
+const { AdminModel } = require('./model/Admin.model');
+const { Adminouter } = require('./routes/AdminRouter');
 colors.setTheme({
     silly: 'rainbow',
     input: 'grey',
@@ -29,8 +31,8 @@ app.use('/user',userRouter);
 app.use('/eyeglasses',eyeglassRoutes);
 app.use(morgan("dev"))
 app.use("/api/v1/auth", authrouter)
+app.use("/admin",Adminouter)
 
-//authentication middleware will come here
 app.use('/cart',cartRouter);
 
 app.get("/", (req, res) => {

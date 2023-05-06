@@ -27,9 +27,9 @@ authrouter.get("/user-auth", MustBeSigned, (req, res) => {
 
 
 //protected Admin route auth
-authrouter.get("/admin-auth", MustBeSigned, isAdmin, (req, res) => {
-    res.status(200).send({ ok: true });
-});
+// authrouter.get("/admin-auth", MustBeSigned, isAdmin, (req, res) => {
+//     res.status(200).send({ ok: true });
+// });
 
 // export default authrouter
 module.exports = {

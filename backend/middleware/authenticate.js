@@ -1,6 +1,3 @@
-// const authenticate=(req,res,next)=>{
-//     // logic
-// }
 
 const JWT = require("bcrypt")
 const UserModel = require("../model/User.model.js")

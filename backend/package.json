@@ -11,10 +11,8 @@
   "author": "",
   "license": "ISC",
   "dependencies": {
-    "@types/color": "^3.0.3",
     "@types/colors": "^1.2.1",
     "@types/cors": "^2.8.13",
-    "@types/morgan": "^1.9.4",
     "bcrypt": "^5.1.0",
     "color": "^4.2.3",
     "colors": "^1.4.0",
