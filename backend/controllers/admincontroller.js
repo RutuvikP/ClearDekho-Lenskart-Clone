@@ -1,9 +1,9 @@
 const JWT = require("jsonwebtoken")
 
-const AdminModel = require("../model/Admin.model");
+const {AdminModel} = require("../model/Admin.model");
 const AdminController = async (req, res) => {
     try {
-        const { name, email, password, phone, address } = req.body;
+        const { name, email, password, phone } = req.body;
 
         if (!name) {
             return res.send({ error: "Name is Required" });
@@ -35,19 +35,19 @@ const AdminController = async (req, res) => {
             email,
             phone,
             password: hashedPassword,
-
+            role:"admin"
         }).save();
 
         res.status(201).send({
             success: true,
-            message: "User Register Successfully",
+            message: "Admin Registered Successfully",
             user,
         });
     } catch (error) {
         console.log(error);
         res.status(500).send({
             success: false,
-            message: "Errro in Registeration",
+            message: "Error in Registeration",
             error,
         });
     }
@@ -80,20 +80,13 @@ const loginController = async (req, res) => {
             });
         }
         //token
-        const token = await JWT.sign({ _id: user._id }, process.env._PRIVATE_KEY, {
+        const token = await JWT.sign({userName:user.name}, process.env._PRIVATE_KEY, {
             expiresIn: "7d",
         });
         res.status(200).send({
             success: true,
             message: "login successfully",
-            user: {
-                _id: user._id,
-                name: user.name,
-                email: user.email,
-                phone: user.phone,
-                adddress: user.address,
-
-            },
+            user,
             token,
         });
     } catch (error) {
@@ -118,7 +111,6 @@ const testController = (req, res) => {
 
 
 const bcrypt = require("bcrypt");
-const { AdminModel } = require("../model/Admin.model");
 
 const hashPassword = async (password) => {
     try {
@@ -140,5 +132,5 @@ const comparePassword = async (password, hashedPassword) => {
 
 
 module.exports = {
-    registerController, loginController, testController, forgotPasswordController
+    AdminController, loginController, testController
 }
