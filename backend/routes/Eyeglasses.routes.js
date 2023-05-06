@@ -4,6 +4,7 @@ const { EyeglassesModel } = require('../model/Eyeglasses.model');
 const eyeglassRoutes=Router();
 
 // get request with functionalities
+
 eyeglassRoutes.get('/',async (req,res)=>{
     const {brand,size,shape,color,orderBy}=req.query;
     const query={};
