@@ -2,7 +2,7 @@
 import ProductNav from './ProductNav'
 import { data } from './Data'
 import ProductCard from './IndiProduct'
-import { Grid, GridItem } from '@chakra-ui/react'
+import { Box, Grid, GridItem } from '@chakra-ui/react'
 import {useDispatch , useSelector} from "react-redux"
 import { useEffect } from 'react'
 import { getProducts } from '../../redux/productReducer/action'
@@ -23,7 +23,9 @@ export const ProductMain = () => {
       color: searchParams.getAll("color"),
       brand: searchParams.getAll("brand"),
       size: searchParams.getAll("size"),
-      shape: searchParams.getAll("shape")
+      shape: searchParams.getAll("shape"),
+      sortObj: searchParams.get("order") && "price",
+      orderBy: searchParams.get("order")
     },
   }
 
@@ -31,11 +33,13 @@ export const ProductMain = () => {
   useEffect(()=>{
     dispatch(getProducts(obj))
   },[location.search])
-  //console.log(products)
+  console.log(products)
   return (
     <>
+    <Box width={"100%"}>
       <ProductNav />
-      <Grid ml={"2vw"} mt={"2vh"} gap={5} gridTemplateColumns={"repeat(3,1fr)"}>
+    </Box>
+      <Grid ml={"2vw"} mt={"2vh"} gap={5} gridTemplateColumns={["repeat(1,1fr)","repeat(1,1fr)","repeat(2,1fr)","repeat(3,1fr)","repeat(3,1fr)"]}>
         {
           products.length>0 &&
           products.map((el)=>(
