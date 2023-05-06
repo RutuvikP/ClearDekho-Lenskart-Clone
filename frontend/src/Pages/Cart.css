@@ -1,0 +1,133 @@
+/* Cart page container */
+.cart-page {
+    display: flex;
+    justify-content: space-between;
+    margin: 2rem;
+    font-family: Arial, sans-serif;
+  }
+  
+  /* Cart items container */
+  .cart-items {
+    flex: 1;
+    margin-right: 2rem;
+  }
+  
+  /* Cart item */
+  .cart-item {
+    display: flex;
+    margin: 1rem 0;
+    padding-bottom: 1rem;
+    border-bottom: 1px solid #ccc;
+  }
+  
+  /* Cart item image */
+  .cart-item img {
+    width: 80px;
+    height: 80px;
+    margin-right: 1rem;
+  }
+  
+  /* Cart item details */
+  .item-details {
+    flex: 1;
+  }
+  
+  /* Cart item name */
+  .item-details h3 {
+    margin: 0;
+    font-size: 1.2rem;
+  }
+  
+  /* Cart item price */
+  .item-details p {
+    margin: 0.5rem 0;
+    font-size: 1.1rem;
+  }
+  
+  /* Cart item quantity selector */
+  .quantity {
+    display: flex;
+    align-items: center;
+    margin-top: 0.5rem;
+  }
+  
+  /* Cart item quantity buttons */
+  .quantity button {
+    border: none;
+    background-color: #fff;
+    color: #0073aa;
+    font-size: 1.5rem;
+    cursor: pointer;
+  }
+  
+  /* Cart item quantity input */
+  .quantity span {
+    margin: 0 0.5rem;
+    font-size: 1.2rem;
+  }
+  
+  /* Cart item buttons */
+  .item-details button {
+    margin-right: 0.5rem;
+    border: none;
+    background-color: #fff;
+    color: #0073aa;
+    font-size: 1.1rem;
+    cursor: pointer;
+  }
+  
+  /* Cart summary container */
+  .cart-summary {
+    flex-basis: 25%;
+    padding: 1rem;
+    background-color: #f5f5f5;
+    border-radius: 5px;
+  }
+  
+  /* Cart summary title */
+  .cart-summary h2 {
+    margin-top: 0;
+    margin-bottom: 1rem;
+    font-size: 1.3rem;
+    font-weight: bold;
+  }
+  
+  /* Cart summary price and tax */
+  .cart-summary p {
+    margin: 0.5rem 0;
+    font-size: 1.1rem;
+  }
+  
+  /* Cart summary coupon input */
+  .cart-summary input {
+    width: 60%;
+    padding: 0.5rem;
+    border: none;
+    border-radius: 5px;
+    margin-right: 1rem;
+  }
+  
+  /* Cart summary coupon button */
+  .cart-summary button {
+    border: none;
+    background-color: #11DAAC;
+    color: #fff;
+    padding: 0.5rem 1rem;
+    border-radius: 5px;
+    font-size: 1.1rem;
+    cursor: pointer;
+  }
+  
+  /* Checkout button */
+  .checkout-button {
+    border: none;
+    background-color: #11DAAC;
+    color: #fff;
+    padding: 1rem;
+    border-radius: 5px;
+    font-size: 1.2rem;
+    cursor: pointer;
+    width: 100%;
+    margin-top: 1rem;
+  }
+  
