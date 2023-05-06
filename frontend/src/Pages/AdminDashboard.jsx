@@ -3,7 +3,7 @@ import axios from 'axios';
 import { Bar, Doughnut, Pie, PolarArea, Radar, Scatter,Bubble } from 'react-chartjs-2';
 import { Chart, registerables } from "chart.js"
 
-Chart.register(...registerables);
+
 import {
     Box,
     Flex,
@@ -13,6 +13,8 @@ import {
     StatLabel,
     StatNumber,
 } from '@chakra-ui/react';
+
+Chart.register(...registerables);
 
 const AdminDashboard = () => {
     const [totalProducts, setTotalProducts] = useState(0);
