@@ -64,13 +64,24 @@ const SinglePage = () => {
 
     axios.post("http://localhost:8080/cart/addtocart",obj).then((res)=>{
       console.log(res)
-      toast({
-        title: 'Added to cart successfully!',
-        description: "The product is added to your cart",
-        status: 'success',
-        duration: 1000,
-        isClosable: true,
-      })
+      if(res.data.msg==="Please Login First!!"){
+        toast({
+          title: 'Login First!',
+          description: "Please do login to your account or signup to start a new journey with us!",
+          status: 'error',
+          duration: 4000,
+          isClosable: true,
+        })
+      }
+      else{
+        toast({
+          title: 'Added to cart successfully!',
+          description: "The product is added to your cart",
+          status: 'success',
+          duration: 4000,
+          isClosable: true,
+        })
+      }
     }).catch(()=>{
       toast({
         title: 'Login First!',
