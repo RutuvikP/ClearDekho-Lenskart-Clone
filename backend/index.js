@@ -14,6 +14,7 @@ const { authrouter } = require('./routes/authRouter');
 const { AdminModel } = require('./model/Admin.model');
 const { Adminouter } = require('./routes/AdminRouter');
 const { MustBeSigned } = require('./middleware/authenticate');
+const orderRouter = require('./routes/Order.routes');
 colors.setTheme({
     silly: 'rainbow',
     input: 'grey',
@@ -33,6 +34,7 @@ app.use('/eyeglasses',eyeglassRoutes);
 app.use(morgan("dev"))
 app.use("/api/v1/auth", authrouter)
 app.use("/admin",Adminouter)
+app.use("/orders",orderRouter)
 
 //authentication middleware will come here
 app.use('/cart',MustBeSigned,cartRouter);

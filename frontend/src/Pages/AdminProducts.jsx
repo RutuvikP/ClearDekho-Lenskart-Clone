@@ -18,12 +18,12 @@ import {
 import { AiFillEdit, AiTwotoneLock } from "react-icons/ai";
 import { BsBoxArrowUpRight, BsFillTrashFill } from "react-icons/bs";
 import axios from "axios";
+import AdminNavbar from "../AdminPage/AdminNavbar";
 
 
 const AdminProducts=() => {
 
     const [data,setData]=useState([]);
-    const {isOpen,onOpen,onClose}=useDisclosure()
     const [update,setUpdate]=useState(false);
 
     const handleDelete=(id)=>{
@@ -54,6 +54,7 @@ const AdminProducts=() => {
     const bg3 = useColorModeValue("gray.100", "gray.700");
     return (
         <>
+        <AdminNavbar/>
         <Text fontSize={'2xl'} w={'100%'} m={'auto'} textDecoration={'underline'}>List of All Products</Text>
       <Flex
         w="full"
@@ -140,7 +141,7 @@ const AdminProducts=() => {
                     overflow="hidden"
                     whiteSpace="nowrap"
                   >
-                    {token.price}
+                    ₹{token.price}
                   </chakra.span>
                   <chakra.span
                     textOverflow="ellipsis"

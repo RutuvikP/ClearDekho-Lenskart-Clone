@@ -13,12 +13,15 @@ import {
     StatLabel,
     StatNumber,
 } from '@chakra-ui/react';
+import AdminNavbar from "../AdminPage/AdminNavbar";
 Chart.register(...registerables);
  const AdminDashboard = () => {
      const [totalProducts, setTotalProducts] = useState(0);
      const [totalUsers, setTotalUsers] = useState(0);
+     const [totaladmin,setAdmins]=useState(0);
 
      const productsData = {
+        responsive:true,
          labels: ['Products'],
          datasets: [
              {
@@ -29,7 +32,20 @@ Chart.register(...registerables);
          ],
      };
 
+     const adminsData = {
+        responsive:true,
+         labels: ['Admin'],
+         datasets: [
+             {
+                 label: 'Total Admin',
+                 data: [totaladmin],
+                 backgroundColor: '#C2185B',
+             },
+         ],
+     };
+
      const usersData = {
+        responsive:true,
          labels: ['Users'],
         datasets: [
            {
@@ -57,19 +73,25 @@ Chart.register(...registerables);
              .catch((err) => {
                  console.log(err);
              })
+         axios.get("http://localhost:8080/admin")
+         .then((res)=>{
+            // console.log(res);
+            setAdmins(res.data.length)
+         })
+         .catch((err)=>{
+            console.log(err);
+         })
      }, [])
      return (
         <Box px={4} py={5}>
-            <Heading as="h1" size="lg" mb={5}>
-                 Welcome Admin
-             </Heading>
-             <SimpleGrid columns={{ sm: 1, md: 3 }} spacing={5}>
+            <AdminNavbar/>
+             <SimpleGrid columns={{ sm: 1, md: 2 }} spacing={25}>
                  <Box bg="white" p={5} borderRadius="md" boxShadow="md">
                     <Stat>
                          <StatLabel>Total Products</StatLabel>
                         <StatNumber>{totalProducts}</StatNumber>
                      </Stat>
-                     <Box mt={4} m={'auto'}>
+                     <Box mt={4}>
                          <Bar data={productsData} />
                     </Box>
                  </Box>
@@ -87,8 +109,17 @@ Chart.register(...registerables);
                          <StatLabel>Total Users</StatLabel>
                          <StatNumber>{totalUsers}</StatNumber>
                      </Stat>
-                     <Box mt={4} m={'auto'}>
+                     <Box mt={4}>
                          <Bar data={usersData} />
+                     </Box>
+                 </Box>
+                 <Box bg="white" p={5} borderRadius="md" boxShadow="md">
+                     <Stat>
+                         <StatLabel>Total Admin</StatLabel>
+                         <StatNumber>{totaladmin}</StatNumber>
+                     </Stat>
+                     <Box mt={4}>
+                         <Bar data={adminsData} />
                      </Box>
                  </Box>
              </SimpleGrid>
