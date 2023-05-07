@@ -1,6 +1,6 @@
 import React from "react";
 import { HamburgerIcon } from "@chakra-ui/icons";
-import { Link, Navigate } from "react-router-dom";
+import { Link, Navigate, useNavigate } from "react-router-dom";
 import Cleardekhologo from "../Cleardekhologo.png";
 import { MdWifiCalling3 } from "react-icons/md";
 import { AiFillHeart } from "react-icons/ai";
@@ -29,9 +29,23 @@ import {
   AccordionIcon,
   Flex,
 } from "@chakra-ui/react";
+import Login from "../Pages/login/Login"
+import Signup from "../Pages/Signup/Signup";
+import { ToastContainer, toast } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
 const MobileNav = () => {
+  let isAuth = JSON.parse(localStorage.getItem("auth")) || false;
+  let userdata = JSON.parse(localStorage.getItem("userData")) || "";
   const { isOpen, onOpen, onClose } = useDisclosure();
-  const firstField = React.useRef();
+  const Field = React.useRef();
+
+  const navigate=useNavigate()
+
+  const showToastMessage = () => {
+    toast.success("Logout Successfull !", {
+      position: toast.POSITION.TOP_RIGHT,
+    });
+  };
   return (
     <Box
       display={{ lg: "inherit", xl: "none" }}
@@ -100,7 +114,7 @@ const MobileNav = () => {
             size="xs"
             isOpen={isOpen}
             placement="left"
-            initialFocusRef={firstField}
+            initialFocusRef={Field}
             onClose={onClose}
             
           >
@@ -113,7 +127,46 @@ const MobileNav = () => {
                 m="5px 30px"
               >
                 {/* <Authentication logic  */}
-                <Box
+                {isAuth ? (
+                  <Flex
+                    
+                    p="5%"
+                    direction="column"
+                    justifyContent="center"
+                    alignItems="center"
+                    w="100%"
+                  >
+                    <Flex w="100%">
+                      <Avatar
+                        src="https://cdn.pixabay.com/photo/2016/11/18/23/38/child-1837375__340.png"
+                        size="lg"
+                        mr="2"
+                      />
+                      <Flex
+                        direction="column"
+                        justifyContent="center"
+                        alignItems="flex-start"
+                      >
+                        <Text mt="10px" fontSize="20px" color="blackAlpha.900">
+                          {userdata.name}
+                        </Text>
+                        <Text color="gray.500" mt="5%" fontSize="sm">
+                          Enjoy Buy 1 Get 1 offer for 365 days
+                        </Text>
+                      </Flex>
+                    </Flex>
+                    <Button
+                      w="100%"
+                      h="35px"
+                      mt="5%"
+                      colorScheme="blue"
+                      fontSize="15px"
+                      _hover={{ bg: "blue.400" }}
+                    >
+                      GET GOLD MEMBERSHIP
+                    </Button>
+                  </Flex>
+                ) : ( <Box
                   style={{
                     padding: "5%",
                     display: "flex",
@@ -135,24 +188,22 @@ const MobileNav = () => {
                       bg="#007AFF"
                       p="3px 15px"
                       color={"white"}
-                      // rounded="lg"
+                      
                       _hover={{ bg: "blue.200" }}
                     >
-                      {/* login element */}
-                      Login
+                      <Login />
                     </Box>
                     <Box
                       bg="#007AFF"
                       p="3px 15px"
                       color={"white"}
-                      // rounded="lg"
+                      
                       _hover={{ bg: "blue.200" }}
                     >
-                      {/* login element */}
-                      Signup
+                      <Signup/>
                     </Box>
                   </Box>
-                </Box>
+                </Box>)}
               </DrawerHeader>
               <DrawerBody borderBottomWidth="1px" backgroundColor={"#1D3E53"}>
                 <Box display="flex" flexDirection="column" fontSize="16px">
@@ -420,7 +471,29 @@ const MobileNav = () => {
 
                 <Accordion allowMultiple></Accordion>
               </DrawerBody>
-              {/* signout logic for hamburgermenu */}
+              {isAuth && (
+                <DrawerFooter bg="#1D3E53">
+                  <Button
+                    mt="5%"
+                    fontSize="18px"
+                    colorScheme="blue"
+                    borderBottom="1px solid #526171"
+                    p="6% 15%"
+                    _hover={{ bg: "blue.200" }}
+                    onClick={() => {
+                      localStorage.removeItem("auth");
+                      localStorage.removeItem("userData");
+                      localStorage.removeItem("token");
+                      showToastMessage();
+                      setTimeout(() => {
+                        navigate("/");
+                      }, 1000);
+                    }}
+                  ><ToastContainer />
+                    Sign Out
+                  </Button>
+                </DrawerFooter>
+              )}
             </DrawerContent>
           </Drawer>
         </Box>
