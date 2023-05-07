@@ -1,5 +1,8 @@
 import "./App.css";
 import Navbar from "./Components/Navbar";
+
+import Signup from "./Pages/Signup/Signup";
+import Login from "./Pages/login/Login";
 import AllRoutes from './Routes/AllRoutes';
 
 function App() {
@@ -7,7 +10,9 @@ function App() {
     <div className="App">
       <Navbar />
       <AllRoutes/>
-      {/* <h1>ClearDekho App</h1> */}
+      {/* <Signup /> */}
+      {/* <Login/> */}
+     
     </div>
   );
 }

@@ -8,7 +8,7 @@ import AdminProductEdit from '../Pages/AdminProductEdit';
 import AllUsers from '../AdminPage/AllUsers';
 import Payment from '../Components/Products/Payment';
 import Cart from '../Pages/Cart';
-
+import AdminSignup from '../Pages/AdminSignup';
 
 
 
@@ -16,7 +16,7 @@ const AllRoutes = () => {
     return (
         <Routes>
             <Route path='/' element={<Home />} />
-            {/* <Route path='/admindashboard' element={<AdminDashboard/>}/> */}
+            <Route path='/admindashboard' element={<AdminDashboard/>}/>
             <Route path="/eyeglasses/:id" element={<SinglePage />} />
             <Route path='/eyeglasses' element={<Product />} />
             <Route path='/adminproducts' element={<AdminProducts />} />
@@ -24,6 +24,7 @@ const AllRoutes = () => {
             <Route path='/adminproducts/update/:id' element={<AdminProductEdit />} />
             <Route path='/payment' element={<Payment />} />
             <Route path='/cart' element={<Cart />} />
+            <Route path='/adminsignup' element={<AdminSignup/>}/>
         </Routes>
     )
 };

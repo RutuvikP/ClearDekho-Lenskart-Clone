@@ -1,5 +1,5 @@
 const JWT = require("jsonwebtoken")
-
+require('dotenv').config();
 const {AdminModel} = require("../model/Admin.model");
 const AdminController = async (req, res) => {
     try {
@@ -85,7 +85,7 @@ const loginController = async (req, res) => {
         });
         res.status(200).send({
             success: true,
-            message: "login successfully",
+            message: "Admin login successfull",
             user,
             token,
         });
