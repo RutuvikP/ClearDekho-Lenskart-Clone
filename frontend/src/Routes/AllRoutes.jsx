@@ -5,7 +5,8 @@ import SinglePage from '../Components/Products/SingleCArd';
 import { Product } from '../Pages/Product';
 import AdminProducts from '../Pages/AdminProducts';
 import AdminProductEdit from '../Pages/AdminProductEdit';
-import AllUsers from './../Project/AllUsers';
+import Cart from '../Pages/Cart';
+import AllUsers from '../AdminPage/AllUsers';
 
 
 
@@ -19,6 +20,7 @@ const AllRoutes = () => {
             <Route path='/adminproducts' element={<AdminProducts />} />
             <Route path="/allusers" element={<AllUsers />}></Route>
             <Route path='/adminproducts/update/:id' element={<AdminProductEdit />} />
+            <Route path="/cart" element={<Cart />}></Route>
         </Routes>
     )
 };
