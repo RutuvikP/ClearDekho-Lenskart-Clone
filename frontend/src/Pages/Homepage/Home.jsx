@@ -35,7 +35,6 @@ import Footer from "../../Components/Footer/Footer";
 const Home = () => {
   return (
     <Box>
-      <Navbar/>
       <HomepageContent1 data={HompePageitem} />
       <HomepageContent2 data={HompePageitem2} />
 

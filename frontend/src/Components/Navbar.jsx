@@ -1,11 +1,11 @@
 import React, { useState } from "react";
-import {
-  Link,
-} from "react-router-dom";
+import { Link, useNavigate, Navigate } from "react-router-dom";
 import { CiHeart } from "react-icons/ci";
 import { CgShoppingCart } from "react-icons/cg";
 import Cleardekhologo from "../Cleardekhologo.png";
 import { MdWifiCalling3 } from "react-icons/md";
+import { TriangleDownIcon } from "@chakra-ui/icons";
+
 import {
   Box,
   Spacer,
@@ -22,9 +22,17 @@ import {
   Menu,
   MenuButton,
   MenuList,
+  Popover,
+  PopoverTrigger,
+  PopoverContent,
+  PopoverBody,
 } from "@chakra-ui/react";
-import MobileNav from "./MobileNav";
+import { ToastContainer, toast } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
 
+import MobileNav from "./MobileNav";
+import Login from "../Pages/login/Login";
+import Signup from "../Pages/Signup/Signup";
 
 const NavbarTopDescription = [
   {
@@ -69,10 +77,19 @@ const NavbarTopDescription = [
 ];
 
 const Navbar = () => {
-  // const navigate = useNavigate();
-  // const [isOpen, setIsOpen] = React.useState(false);
+  let isAuth = JSON.parse(localStorage.getItem("auth")) || false;
+  let userdata = JSON.parse(localStorage.getItem("userData")) || "";
+
+  const navigate = useNavigate();
+  const [isOpen, setIsOpen] = React.useState(false);
   const [isEyeglassesOpen, setIsEyeglassesOpen] = useState(false);
   const [isComputerGlassesOpen, setIsComputerGlassesOpen] = useState(false);
+
+  const showToastMessage = () => {
+    toast.success("Logout Successfull !", {
+      position: toast.POSITION.TOP_RIGHT,
+    });
+  };
 
   return (
     <Box overflow="hidden" bg="white">
@@ -143,7 +160,7 @@ const Navbar = () => {
               <HStack w="35%">
                 <Button
                   size="lg"
-                  bg="whiteAlpha.900"
+                  bg="white"
                   _hover={{ bg: "white" }}
                   fontSize="16px"
                   fontWeight="400"
@@ -151,17 +168,59 @@ const Navbar = () => {
                 >
                   Track Order
                 </Button>
-                {/* need to add confitional rendering on the basis of authentication*/}
-                <Box display={"flex"} fontSize="14px" fontWeight="400">
-                  <Center fontWeight={"400"} fontSize="16px" w="60px">
-                    Login
-                  </Center>{" "}
-                  {/* Login component */}
-                  <Center fontWeight={"400"} fontSize="16px" w="60px">
-                    Signup
-                  </Center>{" "}
-                  {/* Signup Component  */}
-                </Box>
+                {isAuth === true ? (
+                  <Popover trigger="hover">
+                    <PopoverTrigger>
+                      <Box
+                        fontWeight={"600"}
+                        fontSize="15px"
+                        m="auto"
+                        mt="-2px"
+                        w="90px"
+                        textAlign="center"
+                      >
+                        {userdata.name}
+                        <TriangleDownIcon
+                          ml="2px"
+                          fontSize={"9px"}
+                          _hover={{ transform: "rotate(180deg)" }}
+                        />
+                      </Box>
+                    </PopoverTrigger>
+                    <PopoverContent
+                      w="120px"
+                      boxShadow={"rgba(0, 0, 0, 0.24) 0px 3px 8px"}
+                    >
+                      <PopoverBody
+                        h={"40px"}
+                        pl="6"
+                        fontSize="15px"
+                        _hover={{ fontWeight: "bold" }}
+                      >
+                        <Box
+                          color="#333368"
+                          onClick={() => {
+                            localStorage.removeItem("auth");
+                            localStorage.removeItem("userData");
+                            localStorage.removeItem("token");
+                            showToastMessage();
+                            setTimeout(() => {
+                              navigate("/");
+                            }, 1000);
+                          }}
+                        >
+                          <ToastContainer />
+                          Sign Out
+                        </Box>
+                      </PopoverBody>
+                    </PopoverContent>
+                  </Popover>
+                ) : (
+                  <Box display={"flex"}>
+                    <Login />
+                    <Signup />
+                  </Box>
+                )}
 
                 <Button
                   leftIcon={<CiHeart />}
@@ -174,7 +233,7 @@ const Navbar = () => {
                 >
                   Wishlist
                 </Button>
-                <Link to="Cart Route">
+                 <Link to="Cart Route">     {/*  // Cart route */}
                   <Button
                     leftIcon={<CgShoppingCart />}
                     size="lg"
@@ -196,8 +255,6 @@ const Navbar = () => {
 
         <Box cursor="pointer" bg="#fbf9f7" p={2.5}>
           <Flex gap={4} pl={5} pt={2} justifyContent="space-between">
-            {/* <NavbarCard5 /> */}
-
             <Flex bg="#fbf9f7" cursor="pointer" gap="6">
               <Menu
               //    isOpen={isOpen} onClose={() => setIsOpen(false)}
@@ -209,7 +266,7 @@ const Navbar = () => {
                   _hover={{
                     borderBottom: "4px solid teal",
                   }}
-                  onMouseEnter={() => setIsEyeglassesOpen(true)}
+                  // onMouseEnter={() => setIsEyeglassesOpen(true)}
                   //   onMouseLeave={() => setIsEyeglassesOpen(false)}
 
                   //   onMouseEnter={() => setIsOpen(true)}
@@ -224,12 +281,12 @@ const Navbar = () => {
                   bg="white"
                   w="95vw"
                   p="5"
-                  onMouseEnter={() => setIsEyeglassesOpen(true)}
-                  onMouseLeave={() => setIsEyeglassesOpen(false)}
+                  // onMouseEnter={() => setIsEyeglassesOpen(true)}
+                  // onMouseLeave={() => setIsEyeglassesOpen(false)}
                   //   onMouseEnter={() => setIsOpen(true)}
                   //   onMouseLeave={() => setIsOpen(false)}
                 >
-                  <Link to="Add Product Route">
+                  <Link to="/eyeglasses">
                     <Box>
                       <Grid gridTemplateColumns="repeat(6, 1fr)" w="100%">
                         <Flex
@@ -480,7 +537,7 @@ const Navbar = () => {
                   //   onMouseEnter={() => setIsOpen(true)}
                   //   onMouseLeave={() => setIsOpen(false)}
                 >
-                  <Link to="/products">
+                  <Link to="/eyeglasses">
                     <Box>
                       <Grid gridTemplateColumns="repeat(5, 1fr)" w="100%">
                         <Flex
@@ -582,11 +639,11 @@ const Navbar = () => {
                 <MenuList
                   color="blackAlpha.900"
                   h="400"
-                  bg="whiteAlpha.800"
+                  bg="white"
                   w="95vw"
                   //   p="2"
                 >
-                  <Link to="product page route">
+                  <Link to="/eyeglasses">
                     <Box>
                       <Grid
                         gridTemplateColumns="repeat(3, 1fr)"
@@ -646,11 +703,11 @@ const Navbar = () => {
                 <MenuList
                   color="blackAlpha.900"
                   h="400px"
-                  bg="whiteAlpha.800"
+                  bg="white"
                   p="5"
                   w="95vw"
                 >
-                  <Link to="/newproduct">
+                  <Link to="/eyeglasses">
                     <Box>
                       <Grid gridTemplateColumns="repeat(5, 1fr)" p="1" w="100%">
                         <Flex direction="column" gap="6">
@@ -784,11 +841,11 @@ const Navbar = () => {
                 <MenuList
                   color="blackAlpha.900"
                   h="400px"
-                  bg="whiteAlpha.800"
+                  bg="white"
                   w="100%"
                   p="5"
                 >
-                  <Link to="product route">
+                  <Link to="/eyeglasses">
                     <Box>
                       <Grid gridTemplateColumns="repeat(6, 1fr)">
                         <Flex direction="column" justifyContent="space-evenly">
@@ -960,7 +1017,7 @@ const Navbar = () => {
 
               <Menu>
                 <MenuButton
-                  bg="white"
+                  bg="#fbf9f7"
                   fontSize="15px"
                   fontWeight="600"
                   _hover={{
@@ -973,7 +1030,7 @@ const Navbar = () => {
                 <MenuList
                   color="blackAlpha.900"
                   h="400px"
-                  bg="whiteAlpha.800"
+                  bg="white"
                   w="100%"
                 >
                   <Box>
@@ -1052,7 +1109,7 @@ const Navbar = () => {
                 <MenuList
                   color="blackAlpha.900"
                   h="400px"
-                  bg="whiteAlpha.800"
+                  bg="white"
                   w="100%"
                   p="5"
                 >
@@ -1209,7 +1266,7 @@ const Navbar = () => {
 
       {/* Lower Navbar Completed  */}
 
-      <MobileNav/>
+      <MobileNav />
     </Box>
   );
 };

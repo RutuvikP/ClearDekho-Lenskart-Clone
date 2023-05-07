@@ -46,3 +46,5 @@ orderRouter.delete('/delete/:id',async(req,res)=>{
         res.send({"msg":error.message});
     }
 })
+
+module.exports=orderRouter;

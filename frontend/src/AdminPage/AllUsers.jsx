@@ -7,7 +7,7 @@ import {
     chakra,
     useColorModeValue,
 } from "@chakra-ui/react";
-import Navbar from './Navbar';
+import AdminNavbar from './AdminNavbar';
 
 const AllUsers = () => {
 
@@ -49,7 +49,7 @@ const AllUsers = () => {
 
     return (
         <>
-            <Navbar />
+            <AdminNavbar/>
             <Flex
                 w="full"
                 bg="#edf3f8"
@@ -118,4 +118,4 @@ const AllUsers = () => {
     );
 }
 
-export default AllUsers
+export default AllUsers;
