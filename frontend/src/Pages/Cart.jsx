@@ -2,7 +2,11 @@ import React, { useState } from 'react';
 import "./Cart.css";
 
 const Cart = () => {
+  //const [data,setData] = useState([])
   // Product data and initial cart state
+  // axios.get("http://localhost:8080/cart").then((res)=>{
+        //setData(res.data)
+  //})
   const products = [
     { id: 1, name: 'black gold full rim hexagon john jacobs supreme steel jj e11675-c1 eyeglasses', image: 'https://static5.lenskart.com/media/catalog/product/pro/1/thumbnail/628x301/9df78eab33525d08d6e5fb8d27136e95//j/o/john-jacobs-jj-e11675-c1-eyeglasses_g_1122_2.jpg', price: 1999 },
     { id: 2, name: 'black gold full rim hexagon john jacobs supreme steel jj e11675-c1 eyeglasses', image: 'https://static5.lenskart.com/media/catalog/product/pro/1/thumbnail/628x301/9df78eab33525d08d6e5fb8d27136e95//j/o/john-jacobs-jj-e11675-c1-eyeglasses_g_1122_2.jpg', price: 999 }
@@ -15,7 +19,7 @@ const Cart = () => {
   ]);
 
   const [coupoun,setCoupoun]=useState("");
-
+   console.log(coupoun)
   // Functions for updating the cart
   const incrementQuantity = (id) => {
     setCart(cart.map(item => {
@@ -45,16 +49,16 @@ const Cart = () => {
     const product = products.find(p => p.id === item.id);
     return total + (product.price * item.quantity);
   }, 0);
-  const tax = totalPrice * 0.18;
+  let tax = totalPrice * 0.18;
   let totalPayable = totalPrice + tax;
-
+  const [totalpay , setTotalpay] = useState(totalPayable)
   const handleApplyCoupon = () => {
     if ( coupoun === 'CLEARDEKHO50') {
       totalPayable= totalPayable - 50
+      setTotalpay(totalPayable)
     }
-    console.log(totalPayable)
   };
-
+  console.log(totalpay)
   return (
     <div className="cart-page">
       <div className="cart-items">
@@ -72,8 +76,8 @@ const Cart = () => {
                   <span>{item.quantity}</span>
                   <button onClick={() => incrementQuantity(item.id)}>+</button>
                 </div>
-                <button onClick={() => removeItem(item.id)}>Remove</button>
-                <button onClick={() => setCart([...cart, { id: item.id, quantity: 1 }])}>Repeat</button>
+                <button className="abc" onClick={() => removeItem(item.id)}>Remove</button>
+                {/* <button onClick={() => setCart([...cart, { id: item.id, quantity: 1 }])}>Repeat</button> */}
               </div>
             </div>
           );
@@ -83,10 +87,10 @@ const Cart = () => {
         <h2>Order Summary</h2>
         <p>Total Price: ₹{totalPrice.toFixed(2)}</p>
         <p>Tax (18%): ₹{tax.toFixed(2)}</p>
-        <p>Total Payable: ₹{totalPayable.toFixed(2)}</p>
+        <p>Total Payable: ₹{totalPayable}</p>
         <div className="coupon">
           <input type="text" placeholder="Enter coupon code" onChange={(e)=>setCoupoun(e.target.value)} />
-          <button  onClick={handleApplyCoupon}>Apply</button>
+          <button className="apply-button" onClick={handleApplyCoupon}>Apply</button>
         </div>
         <button className="checkout-button">Proceed to Checkout</button>
       </div>

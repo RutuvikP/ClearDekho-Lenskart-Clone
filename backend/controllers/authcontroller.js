@@ -1,5 +1,6 @@
 const JWT = require("jsonwebtoken")
 const { UserModel } = require("../model/User.model");
+require('dotenv').config()
 
 const registerController = async (req, res) => {
     try {
@@ -84,20 +85,13 @@ const loginController = async (req, res) => {
             });
         }
         //token
-        const token = await JWT.sign({ userID: user._id, userName:user.name }, process.env._PRIVATE_KEY, {
+        const token = await JWT.sign({ userID: user._id, userName:user.name }, "Cart", {
             expiresIn: "7d",
         });
         res.status(200).send({
             success: true,
             message: "login successfully",
-            user: {
-                _id: user._id,
-                name: user.name,
-                email: user.email,
-                phone: user.phone,
-                adddress: user.address,
-                
-            },
+            user:user,
             token,
         });
     } catch (error) {

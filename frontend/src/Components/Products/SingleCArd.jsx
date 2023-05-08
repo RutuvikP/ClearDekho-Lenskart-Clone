@@ -38,6 +38,8 @@ import { useParams } from 'react-router-dom';
 import { useToast } from '@chakra-ui/react'
 import axios from 'axios';
 const SinglePage = () => {
+  const token = localStorage.getItem("token")
+  //console.log(token,"token-local")
   const toast = useToast()
   const { id } = useParams()
   console.log(id)
@@ -56,22 +58,34 @@ const SinglePage = () => {
       image:data.image,
       title:data.title,
       price:data.price,
-      rating:data.rating,
-      shape:data.shape,
-      size:data.size,
-      color:data.color
+      quantity:1
     }
 
-    axios.post("http://localhost:8080/cart/addtocart",obj).then((res)=>{
+    axios.post("http://localhost:8080/cart/addtocart",obj,{
+      headers:{
+        Authorization: `${token}`
+      }
+    }).then((res)=>{
       console.log(res)
-      toast({
-        title: 'Added to cart successfully!',
-        description: "The product is added to your cart",
-        status: 'success',
-        duration: 1000,
-        isClosable: true,
-      })
-    }).catch(()=>{
+      if(res.data.msg==="Please Login First!!"){
+        toast({
+          title: 'Login First!',
+          description: "Please do login to your account or signup to start a new journey with us!",
+          status: 'error',
+          duration: 4000,
+          isClosable: true,
+        })
+      }
+      else{
+        toast({
+          title: 'Added to cart successfully!',
+          description: "The product is added to your cart",
+          status: 'success',
+          duration: 4000,
+          isClosable: true,
+        })
+      }
+    }).catch((err)=>{
       toast({
         title: 'Login First!',
         description: "Please do login to your account or signup to start a new journey with us!",
@@ -172,10 +186,10 @@ const SinglePage = () => {
               boxShadow: 'lg',
             }}>
             <VStack>
-              <Text textTransform={'uppercase'} fontWeight={"normal"} fontSize={"14px"} >
+              <Text pos={"relative"} top={"1vh"} textTransform={'uppercase'} fontWeight={"normal"} fontSize={"14px"} >
                 SELECT LENSES
               </Text>
-              <Text fontWeight={"normal"} fontSize={"10px"} >
+              <Text pos={"relative"} bottom={"1vh"} fontWeight={"normal"} fontSize={"10px"} >
                 (with 1 Year Warranty & 14 Day Return)
               </Text>
             </VStack>
@@ -196,7 +210,7 @@ const SinglePage = () => {
               transform: 'translateY(2px)',
               boxShadow: 'lg',
             }}>
-            <Text textTransform={'uppercase'} fontWeight={"normal"} fontSize={"14px"} >
+            <Text pos={"relative"} top={"1vh"} textTransform={'uppercase'} textAlign={"center"} fontWeight={"normal"} fontSize={"14px"} >
               Add To Cart
             </Text>
           </Button>

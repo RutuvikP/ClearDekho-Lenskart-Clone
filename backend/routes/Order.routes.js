@@ -15,10 +15,9 @@ orderRouter.get('/',async(req,res)=>{
 
 // for adding products to orders
 orderRouter.post('/',async(req,res)=>{
-    const payload={...req.body,status:"Placed"}
+    //const payload={...req.body,status:"Placed"}
     try {
-        const product=new OrderModel(payload);
-        await product.save();
+        await OrderModel.insertMany(req.body);
         res.send({"msg":"Product added to orders list!!"})
     } catch (error) {
         res.send({"msg":error.message})
@@ -46,3 +45,5 @@ orderRouter.delete('/delete/:id',async(req,res)=>{
         res.send({"msg":error.message});
     }
 })
+
+module.exports=orderRouter;
