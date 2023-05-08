@@ -20,57 +20,63 @@ import {
   import axios from 'axios';
 import { useNavigate } from 'react-router-dom';
   
-  export default function AdminSignup() {
+  export default function AdminLogin() {
     const [showPassword, setShowPassword] = useState(false);
-    const [name,setName]=useState("");
-    const [phone,setPhone]=useState("");
     const [email,setEmail]=useState("");
     const [password,setPassword]=useState("");
     const toast=useToast();
-    const navigate=useNavigate()
+    const navigate=useNavigate();
 
     const handleSubmit=()=>{
-        const payload={name,phone,email,password}
+        const payload={email,password}
         // console.log(payload);
-        setName("");
-        setPhone("");
         setEmail("");
         setPassword("");
-        axios.post("http://localhost:8080/admin/register",payload)
+        axios.post("http://localhost:8080/admin/login",payload)
         .then((res)=>{
             console.log(res);
-            if(res.data.error){
-              toast({
-                title:res.data.error,
-                status:"error",
-                duration:4000,
-                isClosable:true,
-                position:"top"
-            })
+            if(res.data.message=="Email is not registerd"){
+                toast({
+                    title:"Email not registered!!",
+                    status:"info",
+                    duration:4000,
+                    isClosable:true,
+                    position:"top"
+                })
             }
-            if(res.data.message=="Already Register please login"){
-              toast({
-                title:"Already Register please login",
-                status:"info",
-                duration:4000,
-                isClosable:true,
-                position:"top"
-            })
+            if(res.data.message=="Invalid Password"){
+                toast({
+                    title:"Invalid Password",
+                    status:"error",
+                    duration:4000,
+                    isClosable:true,
+                    position:"top"
+                })
             }
-            if(res.data.message=="Admin Registered Successfully"){
-              toast({
-                title:"Admin Registered Successfully!!",
-                description:"Please Login now!",
-                status:"success",
-                duration:4000,
-                isClosable:true,
-                position:"top"
-            })
-            navigate("/adminlogin")
+            if(res.data.message=="Admin login successfull"){
+                localStorage.setItem("token",res.data.token)
+                localStorage.setItem("userData",JSON.stringify(res.data.user))
+                localStorage.setItem("auth",JSON.stringify(true))
+                toast({
+                    title:"Login Successfull!!",
+                    status:"success",
+                    duration:4000,
+                    isClosable:true,
+                    position:"top"
+                })
+                navigate("/")
             }
         })
         .catch((err)=>{
             console.log(err);
+            toast({
+                title:"Something went wrong",
+                description:"Please try again in some time",
+                status:"warning",
+                duration:4000,
+                isClosable:true,
+                position:"top"
+            })
         })
     }
   
@@ -83,7 +89,7 @@ import { useNavigate } from 'react-router-dom';
         <Stack spacing={8} mx={'auto'} maxW={'lg'} py={12} px={6}>
           <Stack align={'center'}>
             <Heading fontSize={'4xl'} textAlign={'center'}>
-              Admin Signup
+              Admin Sign In
             </Heading>
           </Stack>
           <Box
@@ -92,20 +98,6 @@ import { useNavigate } from 'react-router-dom';
             boxShadow={'lg'}
             p={8}>
             <Stack spacing={4}>
-              <HStack>
-                <Box>
-                  <FormControl id="name" isRequired>
-                    <FormLabel>Name</FormLabel>
-                    <Input value={name} type="text" onChange={(e)=>setName(e.target.value)} />
-                  </FormControl>
-                </Box>
-                <Box>
-                  <FormControl id="phone" isRequired>
-                    <FormLabel>Phone</FormLabel>
-                    <Input value={phone} type="number" htmlSize="10" onChange={(e)=>setPhone(e.target.value)} />
-                  </FormControl>
-                </Box>
-              </HStack>
               <FormControl id="email" isRequired>
                 <FormLabel>Email address</FormLabel>
                 <Input value={email} type="email" onChange={(e)=>setEmail(e.target.value)} />
@@ -135,12 +127,12 @@ import { useNavigate } from 'react-router-dom';
                   _hover={{
                     bg: '#11DAAC',
                   }}>
-                  Sign up
+                  Sign In
                 </Button>
               </Stack>
               <Stack pt={6}>
                 <Text align={'center'}>
-                  Already a admin? <Link href='/adminlogin' color={'blue.400'}>Login</Link>
+                  Not registered ? <Link href='/adminsignup' color={'blue.400'}>Admin Signup</Link>
                 </Text>
               </Stack>
             </Stack>

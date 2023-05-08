@@ -9,6 +9,8 @@ import AllUsers from '../AdminPage/AllUsers';
 import Payment from '../Components/Products/Payment';
 import Cart from '../Components/Products/cart';
 import AdminSignup from '../Pages/AdminSignup';
+import AdminLogin from '../Pages/AdminLogin';
+import AdminOrders from '../Pages/AdminOrders';
 
 
 
@@ -25,6 +27,8 @@ const AllRoutes = () => {
             <Route path='/payment' element={<Payment />} />
             <Route path='/cart' element={<Cart />} />
             <Route path='/adminsignup' element={<AdminSignup/>}/>
+            <Route path='/adminlogin' element={<AdminLogin/>}/>
+            <Route path='/adminorders' element={<AdminOrders/>}/>
         </Routes>
     )
 };
