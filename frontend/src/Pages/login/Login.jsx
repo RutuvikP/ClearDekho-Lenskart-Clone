@@ -1,6 +1,6 @@
 import React, { useContext, useState } from "react";
 import { ViewIcon, ViewOffIcon } from "@chakra-ui/icons";
-
+import Swal from 'sweetalert2'
 import {
   Box,
   Button,
@@ -90,7 +90,17 @@ const navigate=useNavigate()
            
           } else {
             // Registration failed, handle accordingly
-            alert(out.message);
+            // alert(out.message);
+            Swal.fire({
+              icon: 'error',
+              title: 'Oops...',
+              text: `${out.message}`,
+              didOpen: () => {
+                  const container = document.querySelector('.swal2-container');
+                  container.style.zIndex = 10000;
+                }
+            });
+
             // console.log("2",out.message);
             // console.log("2", out);
             // console.log('Failed to register user');

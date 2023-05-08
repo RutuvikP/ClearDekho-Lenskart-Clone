@@ -2,11 +2,13 @@
 import ProductNav from './ProductNav'
 import { data } from './Data'
 import ProductCard from './IndiProduct'
-import { Box, Grid, GridItem, Spinner } from '@chakra-ui/react'
+import { Box, Grid, GridItem, Skeleton, Spinner } from '@chakra-ui/react'
 import {useDispatch , useSelector} from "react-redux"
 import { useEffect } from 'react'
 import { getProducts } from '../../redux/productReducer/action'
 import { useLocation, useSearchParams } from 'react-router-dom'
+import SkeletonLoader from './SkeletonLoader'
+
 export const ProductMain = () => {
   const [ searchParams] = useSearchParams()
   const dispatch = useDispatch()
@@ -38,14 +40,7 @@ export const ProductMain = () => {
 
   if(isLoading){
     return (
-      <Spinner
-        style={{ textAlign: "center", marginTop: "300px" }}
-        thickness="4px"
-        speed="0.65s"
-        emptyColor="gray.200"
-        color="blue.500"
-        size="xl"
-      />
+ <SkeletonLoader/>
     );
   }
 
