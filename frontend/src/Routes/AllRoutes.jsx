@@ -7,7 +7,7 @@ import AdminProducts from '../Pages/AdminProducts';
 import AdminProductEdit from '../Pages/AdminProductEdit';
 import AllUsers from '../AdminPage/AllUsers';
 import Payment from '../Components/Products/Payment';
-import Cart from '../Pages/Cart';
+import Cart from '../Components/Products/cart';
 import AdminSignup from '../Pages/AdminSignup';
 
 

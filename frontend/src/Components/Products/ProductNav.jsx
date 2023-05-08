@@ -32,12 +32,12 @@ function ProductNav() {
     return (
         <Flex pos={"relative"} left={["5vw","0vw","0vw","0px","0px"]} bgColor={"#efefef"} width={"100%"} h="7vh" textAlign="center">
             <Box pl={"1vw"} alignSelf={"center"} >
-                <Heading fontWeight={"light"} size={["2px","2px","sm","12px","12px"]} color={"#6d6e71"} >PROMOTIONS</Heading>
+                <Heading pos={"relative"} top={["3px","3px","4px","4px","4px"]} fontWeight={"light"} size={["xs","xs","xs","md","md"]} color={"#6d6e71"} >PROMOTIONS</Heading>
             </Box>
             <Spacer />
             <Box alignSelf={"center"} >
                 <HStack gap={[0,0,0,2,2]}>
-                    <Text fontSize={["8px","8px","10px","14px","14px"]} color={"#329c92"} fontWeight={"semibold"} >VIEW FRAMES</Text>
+                    <Text pos={"relative"} top={["8px","8px","7px","6px","6px"]} fontSize={["8px","8px","10px","14px","14px"]} color={"#329c92"} fontWeight={"semibold"} >VIEW FRAMES</Text>
                     <Switch colorScheme='teal' size={["sm","sm","md","lg",'lg']} />
                     <Text fontSize={["5px","10px","10px","14px","14px"]} >VIEW 3D TRY ON</Text>
                 </HStack>
@@ -45,7 +45,7 @@ function ProductNav() {
             <Spacer />
             <Box w={["10vw","7vw","9vw","15vw","15vw"]} mr={["7vw","7vw","1vw","1vw","1vw"]} alignSelf={"center"}>
                 <HStack display={["none","none","none","flex","flex"]} gap={1}>
-                    <Text width={"5vw"} fontSize={["5px","5px","10px","14px","14px"]} color={"#329c92"} fontWeight={"bold"} >SORT BY</Text>
+                    <Text width={"5vw"} fontSize={["5px","5px","10px","14px","14px"]} mt={"2vh"} color={"#329c92"} fontWeight={"bold"} >SORT BY</Text>
                     <Select onChange={handleChange} width={"10vw"} size='sm' bgColor={"white"} placeholder='Best Sellers'>
                         <option value='asc' checked={order==="asc"}>Price:Low to High</option>
                         <option value='desc' checked={order==="desc"}>Price:High to Low</option>

@@ -1,10 +1,11 @@
 
-const JWT = require("bcrypt")
+const jwt = require("jsonwebtoken")
 const UserModel = require("../model/User.model.js")
+require('dotenv').config()
 const MustBeSigned = (req, res, next) => {
-    const token=req.headers?.authorization
+    const token=req.headers.authorization
         if(token) {
-            const decoded = JWT.verify(token, process.env._PRIVATE_KEY)
+            const decoded = jwt.verify(token, "Cart")
             if(decoded){
                 req.body.userID=decoded.userID,
                 req.body.userName=decoded.userName
