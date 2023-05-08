@@ -7,7 +7,7 @@ const ordersSchema=mongoose.Schema({
     image:{type:String,required:true},
     userID:{type:String,required:true},
     userName:{type:String,required:true},
-    status:{type:String,required:true}
+    status:{type:String,required:true,default:"Placed"}
 },{
     versionKey:false
 });
