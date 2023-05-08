@@ -255,7 +255,7 @@ const Navbar = () => {
 
         <Box cursor="pointer" bg="#fbf9f7" p={2.5}>
           <Flex gap={4} pl={5} pt={2} justifyContent="space-between">
-            <Flex bg="#fbf9f7" cursor="pointer" gap="6">
+            <Flex bg="#fbf9f7" cursor="pointer" gap="6" alignItems={'center'}>
               <Menu
               //    isOpen={isOpen} onClose={() => setIsOpen(false)}
               >
@@ -1238,6 +1238,7 @@ const Navbar = () => {
                   </Grid>
                 </MenuList>
               </Menu>
+              {userdata.role=="admin"?<Link to={'/admindashboard'} style={{fontSize:"15px",fontWeight:"600"}}>ADMIN</Link>:null}
             </Flex>
 
             <HStack w="20%" ml="5%" justifyContent="right">

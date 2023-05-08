@@ -19,6 +19,7 @@ import {
   Checkbox,
   InputRightElement,
   Text,
+  Link,
 } from "@chakra-ui/react";
 
 const Signup = () => {
@@ -307,6 +308,11 @@ const Signup = () => {
                   Sign In
                 </Center>
               </Center>
+              <Link href="/adminsignup">
+              <Center mt={"14px"} fontSize="15px" gap="2">
+                Register as Admin?
+              </Center>
+              </Link>
             </Box>
           </ModalBody>
         </ModalContent>

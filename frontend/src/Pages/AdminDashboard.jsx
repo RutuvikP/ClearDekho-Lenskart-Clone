@@ -19,6 +19,7 @@ Chart.register(...registerables);
      const [totalProducts, setTotalProducts] = useState(0);
      const [totalUsers, setTotalUsers] = useState(0);
      const [totaladmin,setAdmins]=useState(0);
+     const [totalorders,setTotalorders]=useState([]);
 
      const productsData = {
         responsive:true,
@@ -51,10 +52,26 @@ Chart.register(...registerables);
            {
              label: 'Total Users',
              data: [totalUsers],
-             backgroundColor: '#FBC02D',
+             backgroundColor: '#E64A19',
            },
         ],
        };
+
+       const ordersData={
+        responsive:true,
+        labels:['Placed','Shipped','Delivered'],
+        datasets:[
+            {
+                label:"Total Orders",
+                data:[
+                    totalorders.filter((el)=>el.status=="Placed").length,
+                    totalorders.filter((el)=>el.status=="Shipped").length,
+                    totalorders.filter((el)=>el.status=="Delivered").length
+                ],
+                backgroundColor: ['#11DAAC', '#9C27B0', '#FBC02D']
+            }
+        ]
+       }
 
      useEffect(() => {
          axios.get("http://localhost:8080/eyeglasses")
@@ -81,6 +98,14 @@ Chart.register(...registerables);
          .catch((err)=>{
             console.log(err);
          })
+         axios.get("http://localhost:8080/orders")
+         .then((res)=>{
+            // console.log(res);
+            setTotalorders(res.data)
+         })
+         .catch((err)=>{
+            console.log(err);
+         })
      }, [])
      return (
         <Box px={4} py={5}>
@@ -95,15 +120,15 @@ Chart.register(...registerables);
                          <Bar data={productsData} />
                     </Box>
                  </Box>
-                 {/* <Box bg="white" p={5} borderRadius="md" boxShadow="md">
+                 <Box bg="white" p={5} borderRadius="md" boxShadow="md">
                    <Stat>
                          <StatLabel>Total Orders</StatLabel>
-                         <StatNumber>{totalOrders.length}</StatNumber>
+                         <StatNumber>{totalorders.length}</StatNumber>
                      </Stat>
                      <Box mt={4}>
-                         <Doughnut data={ordersData} />
+                         <Bar data={ordersData} />
                      </Box>
-                 </Box> */}
+                 </Box>
                  <Box bg="white" p={5} borderRadius="md" boxShadow="md">
                      <Stat>
                          <StatLabel>Total Users</StatLabel>

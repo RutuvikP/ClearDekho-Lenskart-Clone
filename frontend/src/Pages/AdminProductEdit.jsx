@@ -11,10 +11,11 @@ import {
     Heading,
     Text,
     useColorModeValue,
+    useToast,
   } from '@chakra-ui/react';
 import axios from 'axios';
 import { useState } from 'react';
-import { useParams } from 'react-router-dom';
+import { useNavigate, useParams } from 'react-router-dom';
   
   export default function AdminProductEdit() {
     const {id}=useParams();
@@ -22,6 +23,8 @@ import { useParams } from 'react-router-dom';
     const [title,setTitle]=useState("");
     const [price,setPrice]=useState();
     const [rating,setRating]=useState();
+    const toast=useToast();
+    const navigate=useNavigate();
 
     const handleUpdate=()=>{
       const payload={};
@@ -38,10 +41,24 @@ import { useParams } from 'react-router-dom';
       axios.patch(`http://localhost:8080/eyeglasses/updae/${id}`,payload)
       .then((res)=>{
         console.log(res);
-        alert("Updated!!")
+        toast({
+          title:`Product with ID: ${id} updated!!`,
+          status:"success",
+          isClosable:true,
+          duration:4000,
+          position:'top'
+        })
+        navigate("/adminproducts")
       })
       .catch((err)=>{
         console.log(err);
+        toast({
+          title:err.message,
+          status:"error",
+          isClosable:true,
+          duration:4000,
+          position:'top'
+        })
       })
     }
 
@@ -76,10 +93,10 @@ import { useParams } from 'react-router-dom';
               <Stack spacing={10}>
                 <Button
                 onClick={handleUpdate}
-                  bg={'blue.400'}
+                  bg={'#11DAAC'}
                   color={'white'}
                   _hover={{
-                    bg: 'blue.500',
+                    bg: '#11DAAC',
                   }}>
                   Update
                 </Button>

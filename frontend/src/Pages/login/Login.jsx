@@ -237,6 +237,7 @@ const navigate=useNavigate()
                     <Signup/>
                  
                 </Link>
+                <Link fontSize={"15px"} fontWeight={"500"} textDecoration={"underline"} href="/adminlogin">Login as Admin?</Link>
               </HStack>
             </Box>
           </ModalBody>
