@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import { ViewIcon, ViewOffIcon } from "@chakra-ui/icons";
+import Swal from 'sweetalert2'
 import {
   Center,
   Heading,
@@ -78,10 +79,27 @@ const Signup = () => {
         .then((out) => {
           if (out) {
             if (out.error !== undefined) {
-              alert(out.error);
+              // alert(out.error);
+              Swal.fire({
+                icon: 'info',
+                // title: 'error',
+                text: `${out.error}`,
+                didOpen: () => {
+                    const container = document.querySelector('.swal2-container');
+                    container.style.zIndex = 10000;
+                  }
+              });
             }  if (out.message == "Already Register please login") {
-             
-              alert(out.message);
+              Swal.fire({
+                icon: 'error',
+                title: 'error',
+                text: `${out.message}`,
+                didOpen: () => {
+                    const container = document.querySelector('.swal2-container');
+                    container.style.zIndex = 10000;
+                  }
+              });
+              // alert(out.message);
             } 
      
               setLoading(false)
