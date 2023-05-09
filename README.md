@@ -42,7 +42,6 @@
         <li>Express</li>
          <li>Mongodb</li>
         <li>Chakra UI </li>
-        <li>node js</li>
         </ul>
         <h1>Creators</h1>
     <ul>
