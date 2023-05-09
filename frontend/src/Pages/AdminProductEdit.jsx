@@ -38,7 +38,7 @@ import { useNavigate, useParams } from 'react-router-dom';
         payload.rating=rating;
       }
 
-      axios.patch(`http://localhost:8080/eyeglasses/updae/${id}`,payload)
+      axios.patch(`${process.env.REACT_APP_BASEURL}/eyeglasses/updae/${id}`,payload)
       .then((res)=>{
         console.log(res);
         toast({

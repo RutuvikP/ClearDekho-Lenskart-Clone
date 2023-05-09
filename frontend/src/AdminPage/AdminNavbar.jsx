@@ -31,7 +31,7 @@ const AdminNavbar = () => {
 
     const handleAdd=()=>{
         let payload={title,size,rating,price,shape,image,color};
-        axios.post("http://localhost:8080/eyeglasses/add",payload)
+        axios.post(`${process.env.REACT_APP_BASEURL}/eyeglasses/add`,payload)
         .then((res)=>{
             console.log(res);
             toast({

@@ -56,4 +56,14 @@ cartRouter.delete("/delete/:id",async (req,res)=>{
     }
 });
 
+// emptying cart after checkout
+cartRouter.delete("/deletemany",async(req,res)=>{
+    try {
+        await CartModel.deleteMany({userID:req.body.userID})
+        res.send("Cart emptyed successfully!!")
+    } catch (error) {
+        res.send({"msg":error.message})
+    }
+})
+
 module.exports=cartRouter;

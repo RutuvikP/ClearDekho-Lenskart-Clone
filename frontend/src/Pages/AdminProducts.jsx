@@ -14,6 +14,7 @@ import {
   Text,
   useDisclosure,
   Link,
+  useToast,
 } from "@chakra-ui/react";
 import { AiFillEdit, AiTwotoneLock } from "react-icons/ai";
 import { BsBoxArrowUpRight, BsFillTrashFill } from "react-icons/bs";
@@ -25,11 +26,19 @@ const AdminProducts=() => {
 
     const [data,setData]=useState([]);
     const [update,setUpdate]=useState(false);
+    const toast=useToast();
 
     const handleDelete=(id)=>{
-        axios.delete(`http://localhost:8080/eyeglasses/delete/${id}`)
+        axios.delete(`${process.env.REACT_APP_BASEURL}/eyeglasses/delete/${id}`)
         .then((res)=>{
             console.log(res);
+            toast({
+              title:`Product with ID:${id} deleted successfully!!`,
+              status:'success',
+              isClosable:true,
+              duration:4000,
+              position:'top'
+            })
             setUpdate(!update)
         })
         .catch((err)=>{
@@ -38,7 +47,7 @@ const AdminProducts=() => {
     }
 
     useEffect(()=>{
-        axios.get("http://localhost:8080/eyeglasses")
+        axios.get(`${process.env.REACT_APP_BASEURL}/eyeglasses`)
         .then((res)=>{
             console.log(res);
             setData(res.data);

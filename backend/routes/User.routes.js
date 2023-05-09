@@ -18,14 +18,10 @@ userRouter.get('/', async (req, res) => {
 userRouter.delete("/delete/:id", async (req, res) => {
 
     const { id } = req.params
-    const user = await UserModel.find({ _id: id })
+    const user = await UserModel.findOne({ _id: id })
     if (user) {
-        if (user.userID == req.body.userID) {
-            await UserModel.findByIdAndDelete({ _id: id })
-            res.send({ "msg": `user with ${id} has been deleted!!` })
-        } else {
-            res.send({ "msg": "You are not authorized to delete it!!" })
-        }
+        await UserModel.findByIdAndDelete({_id:id})
+        res.send({"msg":"User deleted successfully!!"})
     } else {
         res.send({ "msg": "user not found!!" })
     }

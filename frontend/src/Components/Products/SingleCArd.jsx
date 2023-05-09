@@ -61,7 +61,7 @@ const SinglePage = () => {
       quantity:1
     }
 
-    axios.post("http://localhost:8080/cart/addtocart",obj,{
+    axios.post(`${process.env.REACT_APP_BASEURL}/cart/addtocart`,obj,{
       headers:{
         Authorization: `${token}`
       }
@@ -74,15 +74,17 @@ const SinglePage = () => {
           status: 'error',
           duration: 4000,
           isClosable: true,
+          position:'top'
         })
       }
       else{
         toast({
-          title: 'Added to cart successfully!',
+          title: 'Product added to cart!!',
           description: "The product is added to your cart",
           status: 'success',
           duration: 4000,
           isClosable: true,
+          position:"top"
         })
       }
     }).catch((err)=>{
@@ -92,13 +94,14 @@ const SinglePage = () => {
         status: 'error',
         duration: 1000,
         isClosable: true,
+        position:"top"
       })
     })
     
-    console.log(obj,"objClick")
+    // console.log(obj,"objClick")
   }
 
-  console.log(data)
+  // console.log(data)
 
   return (
     <Box width={"100%"}>

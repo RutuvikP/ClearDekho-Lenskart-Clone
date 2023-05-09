@@ -1,6 +1,7 @@
 
 const express = require('express');
 const cors=require('cors');
+require('dotenv').config();
 const { userRouter } = require('./routes/User.routes');
 const eyeglassRoutes  = require('./routes/Eyeglasses.routes');
 const cartRouter = require('./routes/Cart.routes');
@@ -44,7 +45,7 @@ app.get("/", (req, res) => {
 })
 
 
-app.listen(8080, async () => {
+app.listen(process.env._PORT, async () => {
     try {
         await connection
         console.log(colors.info("Connected to DB!!"));

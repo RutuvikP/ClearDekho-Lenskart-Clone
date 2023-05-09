@@ -99,7 +99,7 @@ const MobileNav = () => {
               </Box>
             </Link>
 
-            <Link to="Cart Route">
+            <Link to="/cart">
               <Box
                 fontSize="15px"
                 p="4% 0%"
@@ -204,6 +204,7 @@ const MobileNav = () => {
                     </Box>
                   </Box>
                 </Box>)}
+                {userdata.role=="admin"?<Link to={'/admindashboard'} style={{fontSize:"15px",fontWeight:"600"}}>ADMIN</Link>:null}
               </DrawerHeader>
               <DrawerBody borderBottomWidth="1px" backgroundColor={"#1D3E53"}>
                 <Box display="flex" flexDirection="column" fontSize="16px">

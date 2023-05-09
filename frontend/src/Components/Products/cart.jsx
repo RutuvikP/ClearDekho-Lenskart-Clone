@@ -1,15 +1,14 @@
 import { DeleteIcon } from "@chakra-ui/icons";
-import { Box, Button, Center, HStack, Image, SimpleGrid, Text, VStack } from "@chakra-ui/react";
+import { Box, Button, Center, HStack, Image, SimpleGrid, Text, VStack, useToast } from "@chakra-ui/react";
 import { useContext, useEffect, useState } from "react";
 import { Navigate, useNavigate } from "react-router-dom";
-//import { CartContext } from "../Context/CartContextProvider";
 import axios from "axios";
 
 function Cart() {
     const [refresh, setRefresh] = useState(false)
     const token = localStorage.getItem("token")
     const [cartData, setCartData] = useState([]);
-    //const {cartData,handleDelete, handleIncrease, handleDecrease, cleanCart}=useContext(CartContext)
+    const toast=useToast();
     const navigate = useNavigate();
 
 
@@ -21,7 +20,7 @@ function Cart() {
     }, [refresh])
 
     const getData = () => {
-        axios.get("http://localhost:8080/cart", {
+        axios.get(`${process.env.REACT_APP_BASEURL}/cart`, {
             headers: {
                 Authorization: `${token}`
             }
@@ -35,13 +34,19 @@ function Cart() {
         // setCartData(updatedCart);
         //localStorage.setItem('cartData',JSON.stringify(updatedCart))
         console.log(id)
-        axios.delete(`http://localhost:8080/cart/delete/${id}`, {
+        axios.delete(`${process.env.REACT_APP_BASEURL}/cart/delete/${id}`, {
             headers: {
                 Authorization: `${token}`
             }
         }).then((res) => {
             console.log(res)
-            alert("Deleted Successfully!")
+            toast({
+                title:"Product removed from cart!!",
+                status:"success",
+                isClosable:true,
+                duration:4000,
+                position:'top'
+            })
             getData()
         })
     }
@@ -50,7 +55,7 @@ function Cart() {
         cartData.map((el) => {
             if (el._id === id) {
                 //return {...el,quantity:el.quantity+1}
-                axios.patch(`http://localhost:8080/cart/update/${id}`, { quantity: el.quantity + 1 }, {
+                axios.patch(`${process.env.REACT_APP_BASEURL}/cart/update/${id}`, { quantity: el.quantity + 1 }, {
                     headers: {
                         Authorization: `${token}`
                     }
@@ -61,21 +66,23 @@ function Cart() {
             }
 
         })
-        // setCartData(updatedCart)
-        // console.log(updatedCart)
-        // localStorage.setItem('cartData',JSON.stringify(updatedCart))
-
     }
 
-    const handleDecrease = (item) => {
-        const updatedCart = cartData.map((el) => {
-            if (el._id === item._id) {
-                return { ...el, quantity: el.quantity - 1 }
+    const handleDecrease = (id) => {
+        cartData.map((el) => {
+            if (el._id === id) {
+                //return {...el,quantity:el.quantity+1}
+                axios.patch(`${process.env.REACT_APP_BASEURL}/cart/update/${id}`, { quantity: el.quantity - 1 }, {
+                    headers: {
+                        Authorization: `${token}`
+                    }
+                }).then((res) => {
+                    console.log(res)
+                    setRefresh(!refresh)
+                })
             }
-            return el;
+
         })
-        setCartData(updatedCart)
-        localStorage.setItem('cartData', JSON.stringify(updatedCart))
     }
 
     const totalPrice = cartData.reduce((acc, curr) => {
@@ -85,10 +92,19 @@ function Cart() {
 
     const handleCheckout = () => {
 
-        axios.post("http://localhost:8080/orders", cartData).then((res) => {
-            alert("Successfull!")
+        axios.post(`${process.env.REACT_APP_BASEURL}/orders`, cartData).then((res) => {
+            axios.delete(`${process.env.REACT_APP_BASEURL}/cart/deletemany`,{
+                headers:{Authorization:`${token}`}
+            })
+            .then((res)=>{
+                // alert("Cart emptyed")
+                console.log(res);
+            })
+            .catch((err)=>{
+                // alert("ERROR")
+                console.log(err);
+            })
         })
-        //cleanCart()
         navigate('/payment')
     }
     //box-shadow: rgba(99, 99, 99, 0.2) 0px 2px 8px 0px;
@@ -110,7 +126,7 @@ function Cart() {
                                 <VStack w={'60%'}>
                                     <Text >{el.title}</Text>
                                     <HStack>
-                                        <Button onClick={() => handleDelete(el)}><DeleteIcon />Remove</Button>
+                                        <Button onClick={() => handleDelete(el._id)}><DeleteIcon />Remove</Button>
                                     </HStack>
                                 </VStack>
                                 <VStack w={'40%'}>
@@ -118,7 +134,7 @@ function Cart() {
                                     <HStack>
                                         <Button borderRadius={'50%'} bgColor={'#11DAAC'} onClick={() => handleIncrease(el._id)}>+</Button>
                                         <Button>{el.quantity}</Button>
-                                        <Button borderRadius={'50%'} bgColor={'#11DAAC'} isDisabled={el.quantity == 1} onClick={() => handleDecrease(el)}>-</Button>
+                                        <Button borderRadius={'50%'} bgColor={'#11DAAC'} isDisabled={el.quantity == 1} onClick={() => handleDecrease(el._id)}>-</Button>
                                     </HStack>
                                 </VStack>
                             </Box>

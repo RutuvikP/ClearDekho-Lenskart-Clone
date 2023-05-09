@@ -6,38 +6,47 @@ import {
     Stack,
     chakra,
     useColorModeValue,
+    useToast,
 } from "@chakra-ui/react";
 import AdminNavbar from './AdminNavbar';
+import axios from 'axios';
 
 const AllUsers = () => {
 
-    const [users, setUser] = useState([])
+    const [users, setUser] = useState([]);
+    const toast=useToast();
+    const [refresh,setRefresh]=useState(false);
     const Users = () => {
-        fetch(`http://localhost:8080/user`).then((res) => {
+        fetch(`${process.env.REACT_APP_BASEURL}/user`).then((res) => {
             return res.json()
         }).then((res) => {
             setUser(res)
         })
     }
+
+    const deletedata = (ID) => {
+        axios.delete(`${process.env.REACT_APP_BASEURL}/delete/${ID}`)
+        .then((res)=>{
+            // console.log(res);
+            toast({
+                title:`User with ID:${ID} deleted successfully!!`,
+                status:'success',
+                isClosable:true,
+                duration:4000,
+                position:'top'
+              })
+              setRefresh(!refresh)
+        })
+        .catch((err)=>{
+            console.log(err);
+        })
+    }
+
     useEffect(() => {
         Users()
-    }, [])
+    }, [refresh])
 
-
-
-
-
-    console.log(users)
-    const deletedata = (e) => {
-
-        fetch(`http://localhost:8080/user/delete/${e}`, {
-            method: 'DELETE'
-        }).then((res) => {
-            return res.json()
-        }).then((res) => {
-            setUser(res)
-        })
-    }
+    // console.log(users)
 
 
 
@@ -64,7 +73,7 @@ const AllUsers = () => {
                     bg={{ md: bg }}
                     shadow="lg"
                 >
-                    {users && users?.map((person, pid) => {
+                    {users.map((person, pid) => {
                         return (
                             <Flex
                                 direction={{ base: "row", md: "column" }}

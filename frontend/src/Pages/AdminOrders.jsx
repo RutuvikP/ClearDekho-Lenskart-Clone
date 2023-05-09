@@ -50,7 +50,7 @@ const AdminOrders=() => {
                 }
             }
         })
-        axios.patch(`http://localhost:8080/orders/update/${ID}`,payload)
+        axios.patch(`${process.env.REACT_APP_BASEURL}/orders/update/${ID}`,payload)
         .then((res)=>{
             console.log(res);
             toast({
@@ -68,7 +68,7 @@ const AdminOrders=() => {
     }
 
     useEffect(()=>{
-        axios.get("http://localhost:8080/orders")
+        axios.get(`${process.env.REACT_APP_BASEURL}/orders`)
         .then((res)=>{
             console.log(res);
             setData(res.data);

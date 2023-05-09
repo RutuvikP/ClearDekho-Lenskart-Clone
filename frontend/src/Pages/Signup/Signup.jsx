@@ -69,7 +69,7 @@ const Signup = () => {
 
   const registerUser = (info) => {
     try {
-      const response = fetch("http://localhost:8080/api/v1/auth/register", {
+      const response = fetch(`${process.env.REACT_APP_BASEURL}/api/v1/auth/register`, {
         method: "POST",
         headers: {
           "Content-Type": "application/json",

@@ -74,7 +74,7 @@ Chart.register(...registerables);
        }
 
      useEffect(() => {
-         axios.get("http://localhost:8080/eyeglasses")
+         axios.get(`${process.env.REACT_APP_BASEURL}/eyeglasses`)
              .then((res) => {
                  // console.log(res);
                  setTotalProducts(res.data.length)
@@ -82,7 +82,7 @@ Chart.register(...registerables);
              .catch((err) => {
                  console.log(err);
              })
-         axios.get("http://localhost:8080/user")
+         axios.get(`${process.env.REACT_APP_BASEURL}/user`)
              .then((res) => {
                  // console.log(res);
                  setTotalUsers(res.data.length)
@@ -90,7 +90,7 @@ Chart.register(...registerables);
              .catch((err) => {
                  console.log(err);
              })
-         axios.get("http://localhost:8080/admin")
+         axios.get(`${process.env.REACT_APP_BASEURL}/admin`)
          .then((res)=>{
             // console.log(res);
             setAdmins(res.data.length)
@@ -98,7 +98,7 @@ Chart.register(...registerables);
          .catch((err)=>{
             console.log(err);
          })
-         axios.get("http://localhost:8080/orders")
+         axios.get(`${process.env.REACT_APP_BASEURL}/orders`)
          .then((res)=>{
             // console.log(res);
             setTotalorders(res.data)

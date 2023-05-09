@@ -32,7 +32,7 @@ import { useNavigate } from 'react-router-dom';
         // console.log(payload);
         setEmail("");
         setPassword("");
-        axios.post("http://localhost:8080/admin/login",payload)
+        axios.post(`${process.env.REACT_APP_BASEURL}/admin/login`,payload)
         .then((res)=>{
             console.log(res);
             if(res.data.message=="Email is not registerd"){

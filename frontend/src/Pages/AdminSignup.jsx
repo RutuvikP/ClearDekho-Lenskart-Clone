@@ -36,7 +36,7 @@ import { useNavigate } from 'react-router-dom';
         setPhone("");
         setEmail("");
         setPassword("");
-        axios.post("http://localhost:8080/admin/register",payload)
+        axios.post(`${process.env.REACT_APP_BASEURL}/admin/register`,payload)
         .then((res)=>{
             console.log(res);
             if(res.data.error){

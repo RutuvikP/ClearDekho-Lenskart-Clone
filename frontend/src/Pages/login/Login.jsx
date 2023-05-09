@@ -68,7 +68,7 @@ const navigate=useNavigate()
 
   const loginUser = (info) => {
     try {
-      const response = fetch("http://localhost:8080/api/v1/auth/login", {
+      const response = fetch(`${process.env.REACT_APP_BASEURL}/api/v1/auth/login`, {
         method: "POST",
         headers: {
           "Content-Type": "application/json",

@@ -20,6 +20,8 @@ import {
 } from '@chakra-ui/react';
 import { ViewIcon, ViewOffIcon } from '@chakra-ui/icons'
 import { useToast } from '@chakra-ui/react';
+import Swal from 'sweetalert2'
+import { useNavigate } from 'react-router-dom';
 
 const Form1 = () => {
     const [show, setShow] = React.useState(false);
@@ -269,7 +271,7 @@ const Form3 = () => {
 };
 
 export default function Payment() {
-    const toast = useToast();
+    const navigate=useNavigate();
     const [step, setStep] = useState(1);
     const [progress, setProgress] = useState(33.33);
     return (
@@ -326,13 +328,13 @@ export default function Payment() {
                                 colorScheme="red"
                                 variant="solid"
                                 onClick={() => {
-                                    toast({
-                                        title: 'Payment Successfull!',
-                                        description: "To be delivered withing 4-5 working days!",
-                                        status: 'success',
-                                        duration: 3000,
-                                        isClosable: true,
-                                    });
+                                    Swal.fire(
+                                        'Order Placed!!',
+                                        'Your order will be delivered in 5-8 business days!!',
+                                        'success'
+                                      )
+                                      navigate('/')
+
                                 }}>
                                 Thank You
                             </Button>
