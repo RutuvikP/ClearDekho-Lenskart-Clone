@@ -2,7 +2,7 @@
 # CLEARDEKHO
  CLEARDEKHO offer you the convenience of shopping for eyeglasses that you need for your eyes - be it eyeglasses, computer glasses, kids glasses, contact lens, sunglasses, eyeglasses frames from a single virtual store.
 
-<h3>Live Demo Link https://abc.com](https://cleardekho-rutuvikp.vercel.app/ </h3>
+<h3>Live Demo Link https://cleardekho-rutuvikp.vercel.app/ </h3>
 
 
 
