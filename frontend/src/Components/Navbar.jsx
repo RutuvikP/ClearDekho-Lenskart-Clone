@@ -263,6 +263,7 @@ const Navbar = () => {
                   bg="#fbf9f7"
                   fontSize="15px"
                   fontWeight="600"
+                  
                   _hover={{
                     borderBottom: "4px solid teal",
                   }}
@@ -281,6 +282,7 @@ const Navbar = () => {
                   bg="white"
                   w="95vw"
                   p="5"
+                  zIndex={1200}
                   // onMouseEnter={() => setIsEyeglassesOpen(true)}
                   // onMouseLeave={() => setIsEyeglassesOpen(false)}
                   //   onMouseEnter={() => setIsOpen(true)}
@@ -534,6 +536,7 @@ const Navbar = () => {
                   bg="white"
                   w="95vw"
                   p="5"
+                  zIndex={1200}
                   //   onMouseEnter={() => setIsOpen(true)}
                   //   onMouseLeave={() => setIsOpen(false)}
                 >
@@ -641,6 +644,7 @@ const Navbar = () => {
                   h="400"
                   bg="white"
                   w="95vw"
+                  zIndex={1200}
                   //   p="2"
                 >
                   <Link to="/eyeglasses">
@@ -706,6 +710,7 @@ const Navbar = () => {
                   bg="white"
                   p="5"
                   w="95vw"
+                  zIndex={1200}
                 >
                   <Link to="/eyeglasses">
                     <Box>
@@ -844,6 +849,7 @@ const Navbar = () => {
                   bg="white"
                   w="100%"
                   p="5"
+                  zIndex={1200}
                 >
                   <Link to="/eyeglasses">
                     <Box>
@@ -1032,6 +1038,7 @@ const Navbar = () => {
                   h="400px"
                   bg="white"
                   w="100%"
+                  zIndex={1200}
                 >
                   <Box>
                     <Grid gridTemplateColumns="repeat(2, 1fr)">
@@ -1112,6 +1119,7 @@ const Navbar = () => {
                   bg="white"
                   w="100%"
                   p="5"
+                  zIndex={1200}
                 >
                   <Grid gridTemplateColumns="repeat(2, 1fr)" gap={"50px"}>
                     <Box>
