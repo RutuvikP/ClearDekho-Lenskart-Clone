@@ -7,7 +7,7 @@
 
 
  <h1>Home Page</h1>
-    <img src="https://postimg.cc/F1Zq3Px7" alt="h">
+    <img src="https://i.postimg.cc/GhwC0V8J/Screenshot-1943.png" alt="h">
   <h1>Signup Page </h1>
     <img src="" alt="">
      <h1>Login Page</h1>
