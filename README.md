@@ -7,7 +7,7 @@
 
 
  <h1>Home Page</h1>
-    <img src="(https://i.postimg.cc/GhwC0V8J/Screenshot-1943.png)](https://postimg.cc/F1Zq3Px7)" alt="h">
+    
     ![Screenshot (1943)](https://github.com/RutuvikP/shiny-blade-5949/assets/107463268/cc6e355b-09fe-4334-84bf-b43844d890be)
 
   <h1>Signup Page </h1>
