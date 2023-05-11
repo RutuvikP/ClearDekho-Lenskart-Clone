@@ -13,7 +13,7 @@
   <h1>Signup Page </h1>
     <img src="" alt="">
      <h1>Login Page</h1>
-    <img src="![Screenshot (1945)](https://github.com/RutuvikP/shiny-blade-5949/assets/107463268/4cff5be2-c36d-4526-b4e5-47eb9088e086)
+    <img src="https://github.com/RutuvikP/shiny-blade-5949/assets/107463268/4cff5be2-c36d-4526-b4e5-47eb9088e086
 " alt="">
     ![Screenshot (1945)](https://github.com/RutuvikP/shiny-blade-5949/assets/107463268/899d9e68-002a-44f8-b3f5-79b69559d7aa)
 
