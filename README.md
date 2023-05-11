@@ -11,10 +11,9 @@
     ![Screenshot (1943)](https://github.com/RutuvikP/shiny-blade-5949/assets/107463268/cc6e355b-09fe-4334-84bf-b43844d890be)
 
   <h1>Signup Page </h1>
-    <img src="" alt="">
+    <img src="https://github.com/RutuvikP/shiny-blade-5949/assets/107463268/cc6e355b-09fe-4334-84bf-b43844d890be" alt="">
      <h1>Login Page</h1>
     <img src="" alt="">
-
      <h1>Products-Page</h1>
     <img src="" alt="">
      <h1>Single Product-Page</h1>
