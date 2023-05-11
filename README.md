@@ -13,17 +13,18 @@
      <h1>Login Page</h1>
     <img src="https://github.com/RutuvikP/shiny-blade-5949/assets/107463268/087b1bc1-6df2-4523-9db8-414a3c4e1cf6" alt="">
      <h1>Products-Page</h1>
-    <img src="" alt="">
+    <img src="https://github.com/RutuvikP/shiny-blade-5949/assets/107463268/d56c58ef-b87d-4037-a93b-45f9d16bd7c7" alt="">
      <h1>Single Product-Page</h1>
-    <img src="" alt="">
+    <img src="https://github.com/RutuvikP/shiny-blade-5949/assets/107463268/7f96ee4c-cda0-484b-8ba9-3612b0c4eaf2" alt="">
      <h1>Cart-Page</h1>
-    <img src="" alt="">
+    <img src="https://github.com/RutuvikP/shiny-blade-5949/assets/107463268/6bec339f-6485-411d-819f-bb0e30f542b4" alt="">
     <h1>Admin-Page</h1>
     <img src="" alt="">
     <h1>Admin Products Page</h1>
     <img src="" alt="">
     <h1>Checkout Page</h1>
-    <img src="">
+    <img src="https://github.com/RutuvikP/shiny-blade-5949/assets/107463268/16ec56b4-04c8-4a2c-a4c4-b9e6385ff959">
+    <img src="https://github.com/RutuvikP/shiny-blade-5949/assets/107463268/b7e56c0b-c3b3-4a16-b48a-8ab4335a137f" alt="">
     <h1>[Getting Started]</h1>
     <h3>Execution</h3>
     <p>If you want to run our project in your local machine</p>
