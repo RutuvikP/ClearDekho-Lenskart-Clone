@@ -19,9 +19,9 @@
      <h1>Cart-Page</h1>
     <img src="https://github.com/RutuvikP/shiny-blade-5949/assets/107463268/6bec339f-6485-411d-819f-bb0e30f542b4" alt="">
     <h1>Admin-Page</h1>
-    <img src="" alt="">
+    <img src="https://github.com/RutuvikP/shiny-blade-5949/assets/107463268/8c4ce529-beee-41a2-adef-68416493395c" alt="">
     <h1>Admin Products Page</h1>
-    <img src="" alt="">
+    <img src="https://github.com/RutuvikP/shiny-blade-5949/assets/107463268/85b7050e-e57d-4bd7-97d3-5ed430f17b29" alt="">
     <h1>Checkout Page</h1>
     <img src="https://github.com/RutuvikP/shiny-blade-5949/assets/107463268/16ec56b4-04c8-4a2c-a4c4-b9e6385ff959">
     <img src="https://github.com/RutuvikP/shiny-blade-5949/assets/107463268/b7e56c0b-c3b3-4a16-b48a-8ab4335a137f" alt="">
