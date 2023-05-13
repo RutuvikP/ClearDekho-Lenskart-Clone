@@ -18,7 +18,7 @@
 <!--     <img src="https://github.com/RutuvikP/shiny-blade-5949/assets/107463268/d56c58ef-b87d-4037-a93b-45f9d16bd7c7" alt=""> -->
      <h1>Single Product-Page</h1>
      <a href='https://postimg.cc/N5ck31p4' target='_blank'><img src='https://i.postimg.cc/ZK9syHN1/Screenshot-1954.png' border='0' alt='Screenshot-1954'/></a>
-<!--     <img src="https://github.com/RutuvikP/shiny-blade-5949/assets/107463268/7f96ee4c-cda0-484b-8ba9-3612b0c4eaf2" alt=""> -->
+    <img src="https://github.com/RutuvikP/shiny-blade-5949/assets/107463268/7f96ee4c-cda0-484b-8ba9-3612b0c4eaf2" alt="">
      <h1>Cart-Page</h1>
      <a href='https://postimg.cc/mzWSTCTB' target='_blank'><img src='https://i.postimg.cc/xCcpy37J/Screenshot-1955.png' border='0' alt='Screenshot-1955'/></a>
 <!--     <img src="https://github.com/RutuvikP/shiny-blade-5949/assets/107463268/6bec339f-6485-411d-819f-bb0e30f542b4" alt=""> -->
