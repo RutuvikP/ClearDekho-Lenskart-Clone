@@ -5,7 +5,8 @@
 <h3>Live Demo Link https://cleardekho-rutuvikp.vercel.app/ </h3>
 
  <h1>Home Page</h1>
-    <img src="https://github.com/RutuvikP/shiny-blade-5949/assets/107463268/6e22071a-3162-44c4-a515-eedc494bc5f0" alt="">
+ <a href='https://postimg.cc/Fkch5tFT' target='_blank'><img src='https://i.postimg.cc/J0Y0XmfC/Screenshot-1940.png' border='0' alt='Screenshot-1940'/></a>
+<!--     <img src="https://github.com/RutuvikP/shiny-blade-5949/assets/107463268/6e22071a-3162-44c4-a515-eedc494bc5f0" alt=""> -->
   <h1>Signup Page </h1>
     <img src="https://github.com/RutuvikP/shiny-blade-5949/assets/107463268/6e22071a-3162-44c4-a515-eedc494bc5f0" alt="">
      <h1>Login Page</h1>
