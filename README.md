@@ -8,7 +8,8 @@
  <a href='https://postimg.cc/Fkch5tFT' target='_blank'><img src='https://i.postimg.cc/J0Y0XmfC/Screenshot-1940.png' border='0' alt='Screenshot-1940'/></a>
 <!--     <img src="https://github.com/RutuvikP/shiny-blade-5949/assets/107463268/6e22071a-3162-44c4-a515-eedc494bc5f0" alt=""> -->
   <h1>Signup Page </h1>
-    <img src="https://github.com/RutuvikP/shiny-blade-5949/assets/107463268/6e22071a-3162-44c4-a515-eedc494bc5f0" alt="">
+  <a href='https://postimg.cc/jDkq741Q' target='_blank'><img src='https://i.postimg.cc/nLnXNdY5/Screenshot-1944.png' border='0' alt='Screenshot-1944'/></a>
+<!--     <img src="https://github.com/RutuvikP/shiny-blade-5949/assets/107463268/6e22071a-3162-44c4-a515-eedc494bc5f0" alt=""> -->
      <h1>Login Page</h1>
     <img src="https://github.com/RutuvikP/shiny-blade-5949/assets/107463268/087b1bc1-6df2-4523-9db8-414a3c4e1cf6" alt="">
      <h1>Products-Page</h1>
