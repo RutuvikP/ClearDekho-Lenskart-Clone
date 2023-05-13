@@ -23,7 +23,8 @@
      <a href='https://postimg.cc/K1wxcFR4' target='_blank'><img src='https://i.postimg.cc/wBTvVjz5/Screenshot-1955.png' border='0' alt='Screenshot-1955'/></a>
 <!--     <img src="https://i.postimg.cc/wBTvVjz5/Screenshot-1955.png" alt=""> -->
     <h1>Admin-Page</h1>
-    <img src="https://github.com/RutuvikP/shiny-blade-5949/assets/107463268/8c4ce529-beee-41a2-adef-68416493395c" alt="">
+    <a href='https://postimg.cc/0Ks7LLpB' target='_blank'><img src='https://i.postimg.cc/j2WvJTCt/Screenshot-1959.png' border='0' alt='Screenshot-1959'/></a>
+<!--     <img src="https://github.com/RutuvikP/shiny-blade-5949/assets/107463268/8c4ce529-beee-41a2-adef-68416493395c" alt=""> -->
     <h1>Admin Products Page</h1>
     <img src="https://github.com/RutuvikP/shiny-blade-5949/assets/107463268/85b7050e-e57d-4bd7-97d3-5ed430f17b29" alt="">
     <h1>Checkout Page</h1>
