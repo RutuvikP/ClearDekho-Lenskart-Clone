@@ -7,7 +7,8 @@
 
 
  <h1>Home Page</h1>
-    <img src="https://github.com/RutuvikP/shiny-blade-5949/assets/107463268/cc6e355b-09fe-4334-84bf-b43844d890be" alt="">
+    ![Screenshot (1004)](https://github.com/RutuvikP/shiny-blade-5949/assets/112754648/f441a086-42c4-4ece-9b02-7636890f79e6)
+
   <h1>Signup Page </h1>
     <img src="https://github.com/RutuvikP/shiny-blade-5949/assets/107463268/6e22071a-3162-44c4-a515-eedc494bc5f0" alt="">
      <h1>Login Page</h1>
