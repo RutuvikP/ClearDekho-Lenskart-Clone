@@ -14,8 +14,8 @@
      <a href='https://postimg.cc/sBdjmgVv' target='_blank'><img src='https://i.postimg.cc/Bvtjqjkc/Screenshot-1945.png' border='0' alt='Screenshot-1945'/></a>
 <!--     <img src="https://github.com/RutuvikP/shiny-blade-5949/assets/107463268/087b1bc1-6df2-4523-9db8-414a3c4e1cf6" alt=""> -->
      <h1>Products-Page</h1>
-     <a href='https://postimg.cc/PpCSqTwQ' target='_blank'><img src='https://i.postimg.cc/503Tnt9T/Screenshot-1953.png' border='0' alt='Screenshot-1953'/></a>
-<!--     <img src="https://github.com/RutuvikP/shiny-blade-5949/assets/107463268/d56c58ef-b87d-4037-a93b-45f9d16bd7c7" alt=""> -->
+<!--      <a href='https://postimg.cc/PpCSqTwQ' target='_blank'><img src='https://i.postimg.cc/503Tnt9T/Screenshot-1953.png' border='0' alt='Screenshot-1953'/></a> -->
+    <img src="https://i.postimg.cc/zX1c6LQr/Screenshot-1953.png" alt="">
      <h1>Single Product-Page</h1>
      <a href='https://postimg.cc/N5ck31p4' target='_blank'><img src='https://i.postimg.cc/ZK9syHN1/Screenshot-1954.png' border='0' alt='Screenshot-1954'/></a>
     <img src="https://github.com/RutuvikP/shiny-blade-5949/assets/107463268/7f96ee4c-cda0-484b-8ba9-3612b0c4eaf2" alt="">
