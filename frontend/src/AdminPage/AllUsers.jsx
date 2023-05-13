@@ -25,7 +25,7 @@ const AllUsers = () => {
     }
 
     const deletedata = (ID) => {
-        axios.delete(`${process.env.REACT_APP_BASEURL}/delete/${ID}`)
+        axios.delete(`${process.env.REACT_APP_BASEURL}/user/delete/${ID}`)
         .then((res)=>{
             // console.log(res);
             toast({
