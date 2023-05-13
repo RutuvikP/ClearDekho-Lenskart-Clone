@@ -23,13 +23,16 @@
      <a href='https://postimg.cc/K1wxcFR4' target='_blank'><img src='https://i.postimg.cc/wBTvVjz5/Screenshot-1955.png' border='0' alt='Screenshot-1955'/></a>
 <!--     <img src="https://i.postimg.cc/wBTvVjz5/Screenshot-1955.png" alt=""> -->
     <h1>Admin-Page</h1>
-    <a href='https://postimg.cc/0Ks7LLpB' target='_blank'><img src='https://i.postimg.cc/j2WvJTCt/Screenshot-1959.png' border='0' alt='Screenshot-1959'/></a>
+    <a href='https://postimg.cc/XrSXxwks' target='_blank'><img src='https://i.postimg.cc/8zsWp4Jg/Screenshot-1960.png' border='0' alt='Screenshot-1960'/></a>
 <!--     <img src="https://github.com/RutuvikP/shiny-blade-5949/assets/107463268/8c4ce529-beee-41a2-adef-68416493395c" alt=""> -->
     <h1>Admin Products Page</h1>
-    <img src="https://github.com/RutuvikP/shiny-blade-5949/assets/107463268/85b7050e-e57d-4bd7-97d3-5ed430f17b29" alt="">
+    <a href='https://postimg.cc/7bJxc56d' target='_blank'><img src='https://i.postimg.cc/7Pmf57yH/Screenshot-1961.png' border='0' alt='Screenshot-1961'/></a>
+<!--     <img src="https://github.com/RutuvikP/shiny-blade-5949/assets/107463268/85b7050e-e57d-4bd7-97d3-5ed430f17b29" alt=""> -->
     <h1>Checkout Page</h1>
-    <img src="https://github.com/RutuvikP/shiny-blade-5949/assets/107463268/16ec56b4-04c8-4a2c-a4c4-b9e6385ff959">
-    <img src="https://github.com/RutuvikP/shiny-blade-5949/assets/107463268/b7e56c0b-c3b3-4a16-b48a-8ab4335a137f" alt="">
+    <a href='https://postimg.cc/w1TZCr2M' target='_blank'><img src='https://i.postimg.cc/4xzG9kh6/Screenshot-1956.png' border='0' alt='Screenshot-1956'/></a>
+    <a href='https://postimg.cc/TyQrZkkd' target='_blank'><img src='https://i.postimg.cc/Pxn2v9Yw/Screenshot-1957.png' border='0' alt='Screenshot-1957'/></a>
+<!--     <img src="https://github.com/RutuvikP/shiny-blade-5949/assets/107463268/16ec56b4-04c8-4a2c-a4c4-b9e6385ff959">
+    <img src="https://github.com/RutuvikP/shiny-blade-5949/assets/107463268/b7e56c0b-c3b3-4a16-b48a-8ab4335a137f" alt=""> -->
     <h1>[Getting Started]</h1>
     <h3>Execution</h3>
     <p>If you want to run our project in your local machine</p>
